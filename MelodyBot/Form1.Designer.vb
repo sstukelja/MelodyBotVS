@@ -44,9 +44,17 @@ Partial Class Form1
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TrackBar1 = New System.Windows.Forms.TrackBar()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.ListBox2 = New System.Windows.Forms.ListBox()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'listSamples
@@ -125,19 +133,19 @@ Partial Class Form1
         'ImportFileToolStripMenuItem
         '
         Me.ImportFileToolStripMenuItem.Name = "ImportFileToolStripMenuItem"
-        Me.ImportFileToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ImportFileToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.ImportFileToolStripMenuItem.Text = "Import File..."
         '
         'RemoveFileToolStripMenuItem
         '
         Me.RemoveFileToolStripMenuItem.Name = "RemoveFileToolStripMenuItem"
-        Me.RemoveFileToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RemoveFileToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.RemoveFileToolStripMenuItem.Text = "Remove File..."
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.ExitToolStripMenuItem.Text = "Exit..."
         '
         'EditToolStripMenuItem
@@ -150,13 +158,13 @@ Partial Class Form1
         'PHToolStripMenuItem
         '
         Me.PHToolStripMenuItem.Name = "PHToolStripMenuItem"
-        Me.PHToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PHToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.PHToolStripMenuItem.Text = "Preferences..."
         '
         'PH2ToolStripMenuItem
         '
         Me.PH2ToolStripMenuItem.Name = "PH2ToolStripMenuItem"
-        Me.PH2ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PH2ToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.PH2ToolStripMenuItem.Text = "PH..."
         '
         'AboutUsToolStripMenuItem
@@ -169,13 +177,13 @@ Partial Class Form1
         'WebsiteToolStripMenuItem
         '
         Me.WebsiteToolStripMenuItem.Name = "WebsiteToolStripMenuItem"
-        Me.WebsiteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.WebsiteToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.WebsiteToolStripMenuItem.Text = "Website..."
         '
         'LicenseToolStripMenuItem
         '
         Me.LicenseToolStripMenuItem.Name = "LicenseToolStripMenuItem"
-        Me.LicenseToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LicenseToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.LicenseToolStripMenuItem.Text = "License..."
         '
         'RadioButton1
@@ -194,7 +202,7 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.RadioButton3)
         Me.GroupBox1.Controls.Add(Me.RadioButton2)
         Me.GroupBox1.Controls.Add(Me.RadioButton1)
-        Me.GroupBox1.Location = New System.Drawing.Point(439, 27)
+        Me.GroupBox1.Location = New System.Drawing.Point(425, 28)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(200, 100)
         Me.GroupBox1.TabIndex = 18
@@ -223,12 +231,66 @@ Partial Class Form1
         Me.RadioButton2.Text = "Jazz Piano"
         Me.RadioButton2.UseVisualStyleBackColor = True
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.TrackBar1)
+        Me.GroupBox2.Location = New System.Drawing.Point(13, 28)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(200, 99)
+        Me.GroupBox2.TabIndex = 20
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Tempo (BPM)"
+        '
+        'TrackBar1
+        '
+        Me.TrackBar1.LargeChange = 10
+        Me.TrackBar1.Location = New System.Drawing.Point(7, 42)
+        Me.TrackBar1.Maximum = 120
+        Me.TrackBar1.Minimum = 60
+        Me.TrackBar1.Name = "TrackBar1"
+        Me.TrackBar1.Size = New System.Drawing.Size(187, 45)
+        Me.TrackBar1.SmallChange = 5
+        Me.TrackBar1.TabIndex = 10
+        Me.TrackBar1.TickFrequency = 10
+        Me.TrackBar1.Value = 60
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.ListBox2)
+        Me.GroupBox3.Controls.Add(Me.ListBox1)
+        Me.GroupBox3.Location = New System.Drawing.Point(219, 27)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(200, 100)
+        Me.GroupBox3.TabIndex = 21
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Key"
+        '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Items.AddRange(New Object() {"A", "B", "C", "D", "E", "F", "G"})
+        Me.ListBox1.Location = New System.Drawing.Point(7, 20)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(100, 69)
+        Me.ListBox1.TabIndex = 0
+        '
+        'ListBox2
+        '
+        Me.ListBox2.FormattingEnabled = True
+        Me.ListBox2.Items.AddRange(New Object() {"#", "♭", "Major", "Minor"})
+        Me.ListBox2.Location = New System.Drawing.Point(114, 20)
+        Me.ListBox2.Name = "ListBox2"
+        Me.ListBox2.Size = New System.Drawing.Size(80, 69)
+        Me.ListBox2.TabIndex = 1
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.ClientSize = New System.Drawing.Size(731, 497)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.btnPause)
@@ -244,6 +306,10 @@ Partial Class Form1
         Me.MenuStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -270,4 +336,9 @@ Partial Class Form1
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents RadioButton3 As RadioButton
     Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents TrackBar1 As TrackBar
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents ListBox2 As ListBox
+    Friend WithEvents ListBox1 As ListBox
 End Class
