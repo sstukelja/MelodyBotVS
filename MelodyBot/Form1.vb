@@ -5,7 +5,7 @@ Public Class Form1
     'Initialization for page
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "MelodyBot"
-        Me.BackColor = Color.White
+        Me.BackColor = SystemColors.GradientInactiveCaption
         AxWindowsMediaPlayer1.Hide()
         btnPause.Hide()
     End Sub
@@ -52,11 +52,18 @@ Public Class Form1
 
         Dim command As String = String.Concat(cmd, Genre)
 
-        OpenCMD = CreateObject("wscript.shell")
-        OpenCMD.CurrentDirectory = "C:\Users\Lepi\Desktop\CS425\RNN_MelodyBot_NoData\"
-        OpenCMD.run(command)
+        'OpenCMD = CreateObject("wscript.shell")
+        'OpenCMD.CurrentDirectory = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData"
+        'OpenCMD.run(command)
 
-        Dim filePath As String = "C:\Users\Lepi\Desktop\CS425\RNN_MelodyBot_NoData\active_samples\"
+        Dim p As New Process
+        p.StartInfo.FileName = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData\RNN_Sampler.py"
+        p.StartInfo.Arguments = Genre
+        p.Start()
+
+        Form2.ShowDialog()
+
+        Dim filePath As String = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData\active_samples"
         Dim fileName As String = String.Concat(Genre, "Sample.mid")
         Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(String.Concat(filePath, fileName), fileName)
 
@@ -71,6 +78,31 @@ Public Class Form1
             listSamples.SelectedIndex = -1
         End If
 
+    End Sub
+
+    'Hovering over buttons change color
+    'play button
+    Private Sub btnPlay_Enter(sender As Object, e As EventArgs) Handles btnPlay.MouseEnter
+        btnPlay.BackColor = SystemColors.MenuHighlight
+    End Sub
+    Private Sub btnPlay_Leave(sender As Object, e As EventArgs) Handles btnPlay.MouseLeave
+        btnPlay.BackColor = Color.RoyalBlue
+    End Sub
+
+    'pausebutton
+    Private Sub btnPause_Enter(sender As Object, e As EventArgs) Handles btnPause.MouseEnter
+        btnPause.BackColor = SystemColors.MenuHighlight
+    End Sub
+    Private Sub btnPause_Leave(sender As Object, e As EventArgs) Handles btnPause.MouseLeave
+        btnPause.BackColor = Color.RoyalBlue
+    End Sub
+
+    'generate button
+    Private Sub btnGenerate_Enter(sender As Object, e As EventArgs) Handles btnGenerate.MouseEnter
+        btnGenerate.BackColor = SystemColors.MenuHighlight
+    End Sub
+    Private Sub btnGenerate_Leave(sender As Object, e As EventArgs) Handles btnGenerate.MouseLeave
+        btnGenerate.BackColor = Color.RoyalBlue
     End Sub
 
     'File Import

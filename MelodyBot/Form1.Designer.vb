@@ -59,7 +59,7 @@ Partial Class Form1
         '
         'btnPlay
         '
-        Me.btnPlay.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.btnPlay.BackColor = System.Drawing.Color.RoyalBlue
         Me.btnPlay.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPlay.ForeColor = System.Drawing.Color.White
         Me.btnPlay.Location = New System.Drawing.Point(60, 265)
@@ -84,7 +84,7 @@ Partial Class Form1
         '
         'btnPause
         '
-        Me.btnPause.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.btnPause.BackColor = System.Drawing.Color.RoyalBlue
         Me.btnPause.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPause.ForeColor = System.Drawing.Color.White
         Me.btnPause.Location = New System.Drawing.Point(60, 265)
@@ -96,7 +96,7 @@ Partial Class Form1
         '
         'btnGenerate
         '
-        Me.btnGenerate.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.btnGenerate.BackColor = System.Drawing.Color.RoyalBlue
         Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGenerate.ForeColor = System.Drawing.Color.White
         Me.btnGenerate.Location = New System.Drawing.Point(60, 193)
@@ -125,19 +125,19 @@ Partial Class Form1
         'ImportFileToolStripMenuItem
         '
         Me.ImportFileToolStripMenuItem.Name = "ImportFileToolStripMenuItem"
-        Me.ImportFileToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ImportFileToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ImportFileToolStripMenuItem.Text = "Import File..."
         '
         'RemoveFileToolStripMenuItem
         '
         Me.RemoveFileToolStripMenuItem.Name = "RemoveFileToolStripMenuItem"
-        Me.RemoveFileToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RemoveFileToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RemoveFileToolStripMenuItem.Text = "Remove File..."
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ExitToolStripMenuItem.Text = "Exit..."
         '
         'EditToolStripMenuItem
@@ -150,13 +150,13 @@ Partial Class Form1
         'PHToolStripMenuItem
         '
         Me.PHToolStripMenuItem.Name = "PHToolStripMenuItem"
-        Me.PHToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PHToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.PHToolStripMenuItem.Text = "Preferences..."
         '
         'PH2ToolStripMenuItem
         '
         Me.PH2ToolStripMenuItem.Name = "PH2ToolStripMenuItem"
-        Me.PH2ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PH2ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.PH2ToolStripMenuItem.Text = "PH..."
         '
         'AboutUsToolStripMenuItem
@@ -169,13 +169,13 @@ Partial Class Form1
         'WebsiteToolStripMenuItem
         '
         Me.WebsiteToolStripMenuItem.Name = "WebsiteToolStripMenuItem"
-        Me.WebsiteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.WebsiteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.WebsiteToolStripMenuItem.Text = "Website..."
         '
         'LicenseToolStripMenuItem
         '
         Me.LicenseToolStripMenuItem.Name = "LicenseToolStripMenuItem"
-        Me.LicenseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LicenseToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LicenseToolStripMenuItem.Text = "License..."
         '
         'RadioButton1
@@ -227,6 +227,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.ClientSize = New System.Drawing.Size(731, 497)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnGenerate)
@@ -237,7 +238,7 @@ Partial Class Form1
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "MelodyBot"
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
