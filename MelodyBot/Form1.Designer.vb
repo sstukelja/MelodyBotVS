@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.listSamples = New System.Windows.Forms.ListBox()
         Me.btnPlay = New System.Windows.Forms.Button()
@@ -47,14 +48,19 @@ Partial Class Form1
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TrackBar1 = New System.Windows.Forms.TrackBar()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.volumeSlider = New System.Windows.Forms.TrackBar()
+        Me.volumeLabel = New System.Windows.Forms.Label()
+        Me.volumeVal = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
+        CType(Me.volumeSlider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'listSamples
@@ -265,15 +271,6 @@ Partial Class Form1
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Key"
         '
-        'ListBox1
-        '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Items.AddRange(New Object() {"A", "B", "C", "D", "E", "F", "G"})
-        Me.ListBox1.Location = New System.Drawing.Point(7, 20)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(100, 69)
-        Me.ListBox1.TabIndex = 0
-        '
         'ListBox2
         '
         Me.ListBox2.FormattingEnabled = True
@@ -283,12 +280,54 @@ Partial Class Form1
         Me.ListBox2.Size = New System.Drawing.Size(80, 69)
         Me.ListBox2.TabIndex = 1
         '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Items.AddRange(New Object() {"A", "B", "C", "D", "E", "F", "G"})
+        Me.ListBox1.Location = New System.Drawing.Point(7, 20)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(100, 69)
+        Me.ListBox1.TabIndex = 0
+        '
+        'volumeSlider
+        '
+        Me.volumeSlider.LargeChange = 2
+        Me.volumeSlider.Location = New System.Drawing.Point(60, 361)
+        Me.volumeSlider.Maximum = 100
+        Me.volumeSlider.Name = "volumeSlider"
+        Me.volumeSlider.Size = New System.Drawing.Size(266, 45)
+        Me.volumeSlider.TabIndex = 22
+        Me.volumeSlider.TickFrequency = 5
+        '
+        'volumeLabel
+        '
+        Me.volumeLabel.AutoSize = True
+        Me.volumeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.volumeLabel.Location = New System.Drawing.Point(168, 342)
+        Me.volumeLabel.Name = "volumeLabel"
+        Me.volumeLabel.Size = New System.Drawing.Size(60, 16)
+        Me.volumeLabel.TabIndex = 23
+        Me.volumeLabel.Text = "Volume :"
+        '
+        'volumeVal
+        '
+        Me.volumeVal.AutoSize = True
+        Me.volumeVal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.volumeVal.Location = New System.Drawing.Point(223, 342)
+        Me.volumeVal.Name = "volumeVal"
+        Me.volumeVal.Size = New System.Drawing.Size(49, 16)
+        Me.volumeVal.TabIndex = 24
+        Me.volumeVal.Text = "Label1"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.ClientSize = New System.Drawing.Size(731, 497)
+        Me.Controls.Add(Me.volumeVal)
+        Me.Controls.Add(Me.volumeLabel)
+        Me.Controls.Add(Me.volumeSlider)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -310,6 +349,7 @@ Partial Class Form1
         Me.GroupBox2.PerformLayout()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
+        CType(Me.volumeSlider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -341,4 +381,8 @@ Partial Class Form1
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents ListBox2 As ListBox
     Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents volumeSlider As TrackBar
+    Friend WithEvents volumeLabel As Label
+    Friend WithEvents volumeVal As Label
+    Friend WithEvents Timer1 As Timer
 End Class
