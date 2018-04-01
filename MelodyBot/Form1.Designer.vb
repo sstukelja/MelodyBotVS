@@ -155,13 +155,13 @@ Partial Class Form1
         'PHToolStripMenuItem
         '
         Me.PHToolStripMenuItem.Name = "PHToolStripMenuItem"
-        Me.PHToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PHToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.PHToolStripMenuItem.Text = "Preferences..."
         '
         'PH2ToolStripMenuItem
         '
         Me.PH2ToolStripMenuItem.Name = "PH2ToolStripMenuItem"
-        Me.PH2ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PH2ToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.PH2ToolStripMenuItem.Text = "PH..."
         '
         'AboutUsToolStripMenuItem
@@ -187,12 +187,13 @@ Partial Class Form1
         '
         Me.GroupBox3.Controls.Add(Me.ListBox2)
         Me.GroupBox3.Controls.Add(Me.ListBox1)
-        Me.GroupBox3.Location = New System.Drawing.Point(219, 27)
+        Me.GroupBox3.Location = New System.Drawing.Point(594, 453)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(200, 100)
         Me.GroupBox3.TabIndex = 21
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Key"
+        Me.GroupBox3.Visible = False
         '
         'ListBox2
         '
