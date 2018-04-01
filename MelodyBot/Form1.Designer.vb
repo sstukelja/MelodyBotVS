@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
@@ -165,13 +165,13 @@ Partial Class Form1
         'PHToolStripMenuItem
         '
         Me.PHToolStripMenuItem.Name = "PHToolStripMenuItem"
-        Me.PHToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PHToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.PHToolStripMenuItem.Text = "Preferences..."
         '
         'PH2ToolStripMenuItem
         '
         Me.PH2ToolStripMenuItem.Name = "PH2ToolStripMenuItem"
-        Me.PH2ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PH2ToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.PH2ToolStripMenuItem.Text = "PH..."
         '
         'AboutUsToolStripMenuItem
@@ -199,7 +199,6 @@ Partial Class Form1
         '
         Me.GroupBox3.Controls.Add(Me.ListBox2)
         Me.GroupBox3.Controls.Add(Me.ListBox1)
-        Me.GroupBox3.ForeColor = System.Drawing.Color.White
         Me.GroupBox3.Location = New System.Drawing.Point(219, 27)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(200, 100)
