@@ -69,6 +69,7 @@ Public Class Form1
         Dim OpenCMD
         Dim Genre As String = String.Empty
         Dim output As Integer = 0
+        Dim tempo As Integer = 0
         Dim cmd As String = "python RNN_Sampler.py "
 
         If (Preferences.radioBluesGuitar.Checked) Then
@@ -87,13 +88,18 @@ Public Class Form1
             Genre = "mozartPiano "
         End If
 
+        If (Preferences.radioJimi.Checked) Then
+            Genre = "jimiHendrixGuitar "
+        End If
+
         If (Genre.Equals(String.Empty)) Then
             Throw New ArgumentException("Exception Occured")
         End If
 
         output = Preferences.listInstruments.SelectedIndex
+        tempo = Preferences.tempoSlider.Value
 
-        Dim command As String = String.Concat(cmd, Genre, output)
+        Dim command As String = String.Concat(cmd, Genre, output, " ", tempo)
 
         OpenCMD = CreateObject("wscript.shell")
         'OpenCMD.CurrentDirectory = "C:\Users\Lepi\Desktop\CS425\RNN_MelodyBot_NoData"

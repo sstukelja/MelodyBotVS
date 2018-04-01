@@ -43,6 +43,7 @@ Partial Class Preferences
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tempoSlider = New System.Windows.Forms.TrackBar()
         Me.exitPref = New System.Windows.Forms.Button()
+        Me.radioJimi = New System.Windows.Forms.RadioButton()
         CType(Me.songLengthSlider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ModelInstrument.SuspendLayout()
         Me.outputInstrument.SuspendLayout()
@@ -64,6 +65,7 @@ Partial Class Preferences
         '
         'ModelInstrument
         '
+        Me.ModelInstrument.Controls.Add(Me.radioJimi)
         Me.ModelInstrument.Controls.Add(Me.radioMozart)
         Me.ModelInstrument.Controls.Add(Me.radioClassicalViolin)
         Me.ModelInstrument.Controls.Add(Me.radioJazzPiano)
@@ -80,10 +82,10 @@ Partial Class Preferences
         'radioMozart
         '
         Me.radioMozart.AutoSize = True
-        Me.radioMozart.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radioMozart.Location = New System.Drawing.Point(12, 105)
+        Me.radioMozart.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radioMozart.Location = New System.Drawing.Point(12, 97)
         Me.radioMozart.Name = "radioMozart"
-        Me.radioMozart.Size = New System.Drawing.Size(137, 28)
+        Me.radioMozart.Size = New System.Drawing.Size(115, 22)
         Me.radioMozart.TabIndex = 20
         Me.radioMozart.TabStop = True
         Me.radioMozart.Text = "Mozart Piano"
@@ -92,10 +94,10 @@ Partial Class Preferences
         'radioClassicalViolin
         '
         Me.radioClassicalViolin.AutoSize = True
-        Me.radioClassicalViolin.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radioClassicalViolin.Location = New System.Drawing.Point(11, 80)
+        Me.radioClassicalViolin.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radioClassicalViolin.Location = New System.Drawing.Point(11, 72)
         Me.radioClassicalViolin.Name = "radioClassicalViolin"
-        Me.radioClassicalViolin.Size = New System.Drawing.Size(153, 28)
+        Me.radioClassicalViolin.Size = New System.Drawing.Size(125, 22)
         Me.radioClassicalViolin.TabIndex = 19
         Me.radioClassicalViolin.TabStop = True
         Me.radioClassicalViolin.Text = "Classical Violin"
@@ -104,10 +106,10 @@ Partial Class Preferences
         'radioJazzPiano
         '
         Me.radioJazzPiano.AutoSize = True
-        Me.radioJazzPiano.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radioJazzPiano.Location = New System.Drawing.Point(11, 55)
+        Me.radioJazzPiano.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radioJazzPiano.Location = New System.Drawing.Point(11, 47)
         Me.radioJazzPiano.Name = "radioJazzPiano"
-        Me.radioJazzPiano.Size = New System.Drawing.Size(118, 28)
+        Me.radioJazzPiano.Size = New System.Drawing.Size(100, 22)
         Me.radioJazzPiano.TabIndex = 18
         Me.radioJazzPiano.TabStop = True
         Me.radioJazzPiano.Text = "Jazz Piano"
@@ -116,10 +118,10 @@ Partial Class Preferences
         'radioBluesGuitar
         '
         Me.radioBluesGuitar.AutoSize = True
-        Me.radioBluesGuitar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radioBluesGuitar.Location = New System.Drawing.Point(11, 30)
+        Me.radioBluesGuitar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radioBluesGuitar.Location = New System.Drawing.Point(11, 22)
         Me.radioBluesGuitar.Name = "radioBluesGuitar"
-        Me.radioBluesGuitar.Size = New System.Drawing.Size(129, 28)
+        Me.radioBluesGuitar.Size = New System.Drawing.Size(107, 22)
         Me.radioBluesGuitar.TabIndex = 17
         Me.radioBluesGuitar.TabStop = True
         Me.radioBluesGuitar.Text = "Blues Guitar"
@@ -294,6 +296,18 @@ Partial Class Preferences
         Me.exitPref.Text = "Confirm"
         Me.exitPref.UseVisualStyleBackColor = False
         '
+        'radioJimi
+        '
+        Me.radioJimi.AutoSize = True
+        Me.radioJimi.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radioJimi.Location = New System.Drawing.Point(11, 122)
+        Me.radioJimi.Name = "radioJimi"
+        Me.radioJimi.Size = New System.Drawing.Size(151, 22)
+        Me.radioJimi.TabIndex = 21
+        Me.radioJimi.TabStop = True
+        Me.radioJimi.Text = "Jimi Hendrix Guitar"
+        Me.radioJimi.UseVisualStyleBackColor = True
+        '
         'Preferences
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -342,4 +356,5 @@ Partial Class Preferences
     Friend WithEvents songLengthLabel As Label
     Friend WithEvents tempoLabel As Label
     Friend WithEvents exitPref As Button
+    Friend WithEvents radioJimi As RadioButton
 End Class
