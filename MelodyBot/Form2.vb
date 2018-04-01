@@ -1,6 +1,29 @@
-﻿Public Class Form2
-    Private Sub exitMain_Click(sender As Object, e As EventArgs) Handles exitPopup.Click
-        Me.Close()
+﻿Imports System.Timers
+
+Public Class Form2
+
+    Protected Overrides Sub OnLoad(e As EventArgs)
+        MyBase.OnLoad(e)
+        Dim timer As New System.Timers.Timer()
+        timer.Interval = 5000
+        timer.Enabled = True
+        timer.Start()
+        AddHandler timer.Elapsed, AddressOf OnTimedEvent
+    End Sub
+
+    Private Delegate Sub CloseFormCallBack()
+
+    Private Sub CloseForm()
+        If InvokeRequired Then
+            Dim x As New CloseFormCallBack(AddressOf CloseForm)
+            Invoke(x, Nothing)
+        Else
+            Close()
+        End If
+    End Sub
+
+    Private Sub OnTimedEvent(sender As Object, e As ElapsedEventArgs)
+        CloseForm()
     End Sub
 
     'click and drag the window

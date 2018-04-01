@@ -109,6 +109,8 @@ Public Class Form1
         'Dim fileName As String = String.Concat(Genre, (Preferences.listInstruments.SelectedItem), "Sample.mid")
         'Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(String.Concat(filePath, fileName), fileName)
 
+        Form2.ShowDialog()
+
         OpenFileDialog1.InitialDirectory = Directory.GetCurrentDirectory + "\active_samples\"
 
         If (OpenFileDialog1.ShowDialog = DialogResult.OK) Then
@@ -132,8 +134,6 @@ Public Class Form1
 
         'listSamples.SelectedIndex = -1
         'End If
-
-        Form2.ShowDialog()
 
     End Sub
 
