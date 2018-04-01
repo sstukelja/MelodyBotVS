@@ -12,4 +12,16 @@
         tempoLabel.Text = tempoSlider.Value.ToString + " BPM"
     End Sub
 
+    Private Sub ModelInstrument_Enter(sender As Object, e As EventArgs) Handles ModelInstrument.Enter
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
+
+    End Sub
+
+    Private Sub listInstruments_SelectedIndexChanged(sender As Object, e As EventArgs) Handles listInstruments.SelectedIndexChanged
+
+    End Sub
 End Class
