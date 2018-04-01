@@ -94,7 +94,8 @@ Public Class Form1
         Dim command As String = String.Concat(cmd, Genre, output)
 
         OpenCMD = CreateObject("wscript.shell")
-        OpenCMD.CurrentDirectory = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData"
+        'OpenCMD.CurrentDirectory = "C:\Users\Lepi\Desktop\CS425\RNN_MelodyBot_NoData"
+        OpenCMD.CurrentDirectory = "../../RNN_MelodyBot_NoData"
         OpenCMD.run(command)
 
         'Dim p As New Process
@@ -102,20 +103,31 @@ Public Class Form1
         'p.StartInfo.Arguments = Genre & output
         'p.Start()
 
-        Dim filePath As String = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData\active_samples"
-        Dim fileName As String = String.Concat(Genre, (Preferences.listInstruments.SelectedItem), "Sample.mid")
-        Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(String.Concat(filePath, fileName), fileName)
+        'Dim filePath As String = "C:\Users\Lepi\Desktop\CS425\RNN_MelodyBot_NoData\active_samples"
+        'Dim fileName As String = String.Concat(Genre, (Preferences.listInstruments.SelectedItem), "Sample.mid")
+        'Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(String.Concat(filePath, fileName), fileName)
 
-        If (songTuples.IndexOf(newTuple).Equals(-1)) Then
+        If (OpenFileDialog1.ShowDialog = DialogResult.OK) Then
+            Dim start As Integer = OpenFileDialog1.FileName.LastIndexOf("\")
+            Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(OpenFileDialog1.FileName, OpenFileDialog1.FileName.Substring(start + 1))
+
             songTuples.Add(newTuple)
             listSamples.Items.Add(newTuple.Item2)
-        Else
-            AxWindowsMediaPlayer1.Ctlcontrols.pause()
-            btnPlay.Show()
-            btnPause.Hide()
-
-            listSamples.SelectedIndex = -1
+            Console.WriteLine(newTuple)
         End If
+
+
+        OpenCMD.CurrentDirectory = "../bin/Debug"
+        'If (songTuples.IndexOf(newTuple).Equals(-1)) Then
+        'songTuples.Add(newTuple)
+        'listSamples.Items.Add(newTuple.Item2)
+        'Else
+        'AxWindowsMediaPlayer1.Ctlcontrols.pause()
+        'btnPlay.Show()
+        'btnPause.Hide()
+
+        'listSamples.SelectedIndex = -1
+        'End If
 
         Form2.ShowDialog()
 
