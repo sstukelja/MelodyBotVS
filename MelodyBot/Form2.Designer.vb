@@ -32,11 +32,11 @@ Partial Class Form2
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.Label1.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(153, 9)
+        Me.Label1.Location = New System.Drawing.Point(151, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(182, 26)
+        Me.Label1.Size = New System.Drawing.Size(174, 24)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Generating Music"
         '
