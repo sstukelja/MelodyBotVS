@@ -31,9 +31,10 @@ Partial Class Form2
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(150, 30)
+        Me.Label1.Location = New System.Drawing.Point(153, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(182, 26)
         Me.Label1.TabIndex = 0
@@ -43,9 +44,9 @@ Partial Class Form2
         '
         Me.PictureBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(-1, 59)
+        Me.PictureBox1.Location = New System.Drawing.Point(-1, -2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(488, 200)
+        Me.PictureBox1.Size = New System.Drawing.Size(488, 261)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
