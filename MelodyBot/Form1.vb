@@ -1,13 +1,17 @@
-﻿
+﻿Imports System.Runtime.InteropServices
+
 Public Class Form1
 
     Dim songTuples As New List(Of Tuple(Of String, String))
     'Initialization for page
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "MelodyBot"
-        Me.BackColor = Color.White
+        Me.BackColor = SystemColors.GradientInactiveCaption
         AxWindowsMediaPlayer1.Hide()
         btnPause.Hide()
+
+        volumeSlider.Value = AxWindowsMediaPlayer1.settings.volume
+        volumeVal.Text = volumeSlider.Value.ToString
     End Sub
 
     'Button for file play
@@ -34,15 +38,15 @@ Public Class Form1
         Dim Genre As String = String.Empty
         Dim cmd As String = "python RNN_Sampler.py "
 
-        If (RadioButton1.Checked) Then
+        If (Preferences.radioBluesGuitar.Checked) Then
             Genre = "bluesGuitar"
         End If
 
-        If (RadioButton2.Checked) Then
+        If (Preferences.radioJazzPiano.Checked) Then
             Genre = "jazzPiano"
         End If
 
-        If (RadioButton3.Checked) Then
+        If (Preferences.radioClassicalViolin.Checked) Then
             Genre = "classicalViolin"
         End If
 
@@ -52,11 +56,18 @@ Public Class Form1
 
         Dim command As String = String.Concat(cmd, Genre)
 
-        OpenCMD = CreateObject("wscript.shell")
-        OpenCMD.CurrentDirectory = "C:\Users\Lepi\Desktop\CS425\RNN_MelodyBot_NoData\"
-        OpenCMD.run(command)
+        'OpenCMD = CreateObject("wscript.shell")
+        'OpenCMD.CurrentDirectory = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData"
+        'OpenCMD.run(command)
 
-        Dim filePath As String = "C:\Users\Lepi\Desktop\CS425\RNN_MelodyBot_NoData\active_samples\"
+        Dim p As New Process
+        p.StartInfo.FileName = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData\RNN_Sampler.py"
+        p.StartInfo.Arguments = Genre
+        p.Start()
+
+        Form2.ShowDialog()
+
+        Dim filePath As String = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData\active_samples"
         Dim fileName As String = String.Concat(Genre, "Sample.mid")
         Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(String.Concat(filePath, fileName), fileName)
 
@@ -72,6 +83,54 @@ Public Class Form1
         End If
 
     End Sub
+
+    'Hovering over buttons change color
+    'play button
+    Private Sub btnPlay_Enter(sender As Object, e As EventArgs) Handles btnPlay.MouseEnter
+        btnPlay.BackColor = SystemColors.MenuHighlight
+    End Sub
+    Private Sub btnPlay_Leave(sender As Object, e As EventArgs) Handles btnPlay.MouseLeave
+        btnPlay.BackColor = Color.RoyalBlue
+    End Sub
+
+    'pausebutton
+    Private Sub btnPause_Enter(sender As Object, e As EventArgs) Handles btnPause.MouseEnter
+        btnPause.BackColor = SystemColors.MenuHighlight
+    End Sub
+    Private Sub btnPause_Leave(sender As Object, e As EventArgs) Handles btnPause.MouseLeave
+        btnPause.BackColor = Color.RoyalBlue
+    End Sub
+
+    'generate button
+    Private Sub btnGenerate_Enter(sender As Object, e As EventArgs) Handles btnGenerate.MouseEnter
+        btnGenerate.BackColor = SystemColors.MenuHighlight
+    End Sub
+    Private Sub btnGenerate_Leave(sender As Object, e As EventArgs) Handles btnGenerate.MouseLeave
+        btnGenerate.BackColor = Color.RoyalBlue
+    End Sub
+
+    'volume change
+    Private Sub volumeSlider_scroll(sender As Object, e As EventArgs) Handles volumeSlider.Scroll
+        Dim volume As UInteger = CUInt((UShort.MaxValue / 100) * volumeSlider.Value)
+        waveOutSetVolume(IntPtr.Zero, CUInt((volume And &HFFFF) Or (volume << 16)))
+        volumeVal.Text = volumeSlider.Value.ToString
+    End Sub
+    Private Function getVolume() As Integer
+        Dim volume As UInteger = 0
+        waveOutGetVolume(IntPtr.Zero, volume)
+        Return CInt((volume And &HFFFF) / (UShort.MaxValue / 100))
+    End Function
+    Private Sub timer_tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Dim v As Integer = getVolume()
+        If volumeSlider.Value <> v Then
+            volumeSlider.Value = v
+            volumeVal.Text = volumeSlider.Value.ToString
+        End If
+    End Sub
+    <DllImport("winmm.dll")> Private Shared Function waveOutSetVolume(ByVal hwo As IntPtr, ByVal dwVolume As UInteger) As UInteger
+    End Function
+    <DllImport("winmm.dll")> Private Shared Function waveOutGetVolume(ByVal hwo As IntPtr, ByRef pdwVolume As UInteger) As UInteger
+    End Function
 
     'File Import
     Private Sub ImportFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportFileToolStripMenuItem.Click
@@ -107,5 +166,9 @@ Public Class Form1
     'Go To Project Website
     Private Sub WebsiteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles WebsiteToolStripMenuItem.Click
         Process.Start("https://jsannicolas.github.io/CS-426-MelodyBot/")
+    End Sub
+
+    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
     End Sub
 End Class
