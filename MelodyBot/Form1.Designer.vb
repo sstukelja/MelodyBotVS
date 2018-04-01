@@ -41,12 +41,6 @@ Partial Class Form1
         Me.AboutUsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WebsiteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LicenseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.TrackBar1 = New System.Windows.Forms.TrackBar()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
@@ -56,9 +50,6 @@ Partial Class Form1
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         CType(Me.volumeSlider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -164,13 +155,13 @@ Partial Class Form1
         'PHToolStripMenuItem
         '
         Me.PHToolStripMenuItem.Name = "PHToolStripMenuItem"
-        Me.PHToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.PHToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.PHToolStripMenuItem.Text = "Preferences..."
         '
         'PH2ToolStripMenuItem
         '
         Me.PH2ToolStripMenuItem.Name = "PH2ToolStripMenuItem"
-        Me.PH2ToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.PH2ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.PH2ToolStripMenuItem.Text = "PH..."
         '
         'AboutUsToolStripMenuItem
@@ -191,74 +182,6 @@ Partial Class Form1
         Me.LicenseToolStripMenuItem.Name = "LicenseToolStripMenuItem"
         Me.LicenseToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.LicenseToolStripMenuItem.Text = "License..."
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(6, 19)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(82, 17)
-        Me.RadioButton1.TabIndex = 17
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Blues Guitar"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.RadioButton3)
-        Me.GroupBox1.Controls.Add(Me.RadioButton2)
-        Me.GroupBox1.Controls.Add(Me.RadioButton1)
-        Me.GroupBox1.Location = New System.Drawing.Point(425, 28)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(200, 100)
-        Me.GroupBox1.TabIndex = 18
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Genre"
-        '
-        'RadioButton3
-        '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(6, 67)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(94, 17)
-        Me.RadioButton3.TabIndex = 19
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "Classical Violin"
-        Me.RadioButton3.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(6, 43)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(76, 17)
-        Me.RadioButton2.TabIndex = 18
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Jazz Piano"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.TrackBar1)
-        Me.GroupBox2.Location = New System.Drawing.Point(13, 28)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(200, 99)
-        Me.GroupBox2.TabIndex = 20
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Tempo (BPM)"
-        '
-        'TrackBar1
-        '
-        Me.TrackBar1.LargeChange = 10
-        Me.TrackBar1.Location = New System.Drawing.Point(7, 42)
-        Me.TrackBar1.Maximum = 120
-        Me.TrackBar1.Minimum = 60
-        Me.TrackBar1.Name = "TrackBar1"
-        Me.TrackBar1.Size = New System.Drawing.Size(187, 45)
-        Me.TrackBar1.SmallChange = 5
-        Me.TrackBar1.TabIndex = 10
-        Me.TrackBar1.TickFrequency = 10
-        Me.TrackBar1.Value = 60
         '
         'GroupBox3
         '
@@ -303,7 +226,7 @@ Partial Class Form1
         '
         Me.volumeLabel.AutoSize = True
         Me.volumeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.volumeLabel.Location = New System.Drawing.Point(168, 342)
+        Me.volumeLabel.Location = New System.Drawing.Point(153, 342)
         Me.volumeLabel.Name = "volumeLabel"
         Me.volumeLabel.Size = New System.Drawing.Size(60, 16)
         Me.volumeLabel.TabIndex = 23
@@ -313,11 +236,14 @@ Partial Class Form1
         '
         Me.volumeVal.AutoSize = True
         Me.volumeVal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.volumeVal.Location = New System.Drawing.Point(223, 342)
+        Me.volumeVal.Location = New System.Drawing.Point(208, 342)
         Me.volumeVal.Name = "volumeVal"
-        Me.volumeVal.Size = New System.Drawing.Size(49, 16)
+        Me.volumeVal.Size = New System.Drawing.Size(22, 16)
         Me.volumeVal.TabIndex = 24
-        Me.volumeVal.Text = "Label1"
+        Me.volumeVal.Text = "00"
+        '
+        'Timer1
+        '
         '
         'Form1
         '
@@ -329,8 +255,6 @@ Partial Class Form1
         Me.Controls.Add(Me.volumeLabel)
         Me.Controls.Add(Me.volumeSlider)
         Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.btnPause)
         Me.Controls.Add(Me.AxWindowsMediaPlayer1)
@@ -343,11 +267,6 @@ Partial Class Form1
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
-        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         CType(Me.volumeSlider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -372,12 +291,6 @@ Partial Class Form1
     Friend WithEvents AboutUsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents WebsiteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LicenseToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents RadioButton3 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents TrackBar1 As TrackBar
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents ListBox2 As ListBox
     Friend WithEvents ListBox1 As ListBox

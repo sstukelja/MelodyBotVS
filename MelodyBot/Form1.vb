@@ -38,15 +38,15 @@ Public Class Form1
         Dim Genre As String = String.Empty
         Dim cmd As String = "python RNN_Sampler.py "
 
-        If (RadioButton1.Checked) Then
+        If (Preferences.radioBluesGuitar.Checked) Then
             Genre = "bluesGuitar"
         End If
 
-        If (RadioButton2.Checked) Then
+        If (Preferences.radioJazzPiano.Checked) Then
             Genre = "jazzPiano"
         End If
 
-        If (RadioButton3.Checked) Then
+        If (Preferences.radioClassicalViolin.Checked) Then
             Genre = "classicalViolin"
         End If
 
@@ -115,13 +115,11 @@ Public Class Form1
         waveOutSetVolume(IntPtr.Zero, CUInt((volume And &HFFFF) Or (volume << 16)))
         volumeVal.Text = volumeSlider.Value.ToString
     End Sub
-
     Private Function getVolume() As Integer
         Dim volume As UInteger = 0
         waveOutGetVolume(IntPtr.Zero, volume)
         Return CInt((volume And &HFFFF) / (UShort.MaxValue / 100))
     End Function
-
     Private Sub timer_tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Dim v As Integer = getVolume()
         If volumeSlider.Value <> v Then
@@ -129,10 +127,8 @@ Public Class Form1
             volumeVal.Text = volumeSlider.Value.ToString
         End If
     End Sub
-
     <DllImport("winmm.dll")> Private Shared Function waveOutSetVolume(ByVal hwo As IntPtr, ByVal dwVolume As UInteger) As UInteger
     End Function
-
     <DllImport("winmm.dll")> Private Shared Function waveOutGetVolume(ByVal hwo As IntPtr, ByRef pdwVolume As UInteger) As UInteger
     End Function
 
