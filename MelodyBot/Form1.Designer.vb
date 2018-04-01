@@ -48,7 +48,7 @@ Partial Class Form1
         Me.volumeLabel = New System.Windows.Forms.Label()
         Me.volumeVal = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.exitMain = New System.Windows.Forms.Button()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -138,19 +138,19 @@ Partial Class Form1
         'ImportFileToolStripMenuItem
         '
         Me.ImportFileToolStripMenuItem.Name = "ImportFileToolStripMenuItem"
-        Me.ImportFileToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ImportFileToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.ImportFileToolStripMenuItem.Text = "Import File..."
         '
         'RemoveFileToolStripMenuItem
         '
         Me.RemoveFileToolStripMenuItem.Name = "RemoveFileToolStripMenuItem"
-        Me.RemoveFileToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RemoveFileToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.RemoveFileToolStripMenuItem.Text = "Remove File..."
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.ExitToolStripMenuItem.Text = "Exit..."
         '
         'EditToolStripMenuItem
@@ -186,13 +186,13 @@ Partial Class Form1
         'WebsiteToolStripMenuItem
         '
         Me.WebsiteToolStripMenuItem.Name = "WebsiteToolStripMenuItem"
-        Me.WebsiteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.WebsiteToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.WebsiteToolStripMenuItem.Text = "Website..."
         '
         'LicenseToolStripMenuItem
         '
         Me.LicenseToolStripMenuItem.Name = "LicenseToolStripMenuItem"
-        Me.LicenseToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LicenseToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.LicenseToolStripMenuItem.Text = "License..."
         '
         'GroupBox3
@@ -264,18 +264,18 @@ Partial Class Form1
         'Timer1
         '
         '
-        'Button1
+        'exitMain
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Consolas", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(706, -1)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(27, 24)
-        Me.Button1.TabIndex = 25
-        Me.Button1.Text = "X"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.exitMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.exitMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.exitMain.Font = New System.Drawing.Font("Consolas", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.exitMain.ForeColor = System.Drawing.Color.White
+        Me.exitMain.Location = New System.Drawing.Point(706, -1)
+        Me.exitMain.Name = "exitMain"
+        Me.exitMain.Size = New System.Drawing.Size(27, 24)
+        Me.exitMain.TabIndex = 25
+        Me.exitMain.Text = "X"
+        Me.exitMain.UseVisualStyleBackColor = False
         '
         'Form1
         '
@@ -283,7 +283,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(731, 497)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.exitMain)
         Me.Controls.Add(Me.volumeVal)
         Me.Controls.Add(Me.volumeLabel)
         Me.Controls.Add(Me.volumeSlider)
@@ -332,5 +332,5 @@ Partial Class Form1
     Friend WithEvents volumeLabel As Label
     Friend WithEvents volumeVal As Label
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents Button1 As Button
+    Friend WithEvents exitMain As Button
 End Class
