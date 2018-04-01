@@ -1,4 +1,6 @@
 ﻿Imports System.Runtime.InteropServices
+Imports System
+Imports System.IO
 
 Public Class Form1
 
@@ -106,6 +108,8 @@ Public Class Form1
         'Dim filePath As String = "C:\Users\Lepi\Desktop\CS425\RNN_MelodyBot_NoData\active_samples"
         'Dim fileName As String = String.Concat(Genre, (Preferences.listInstruments.SelectedItem), "Sample.mid")
         'Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(String.Concat(filePath, fileName), fileName)
+
+        OpenFileDialog1.InitialDirectory = Directory.GetCurrentDirectory + "\active_samples\"
 
         If (OpenFileDialog1.ShowDialog = DialogResult.OK) Then
             Dim start As Integer = OpenFileDialog1.FileName.LastIndexOf("\")
