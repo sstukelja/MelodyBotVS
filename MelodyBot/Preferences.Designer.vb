@@ -30,7 +30,7 @@ Partial Class Preferences
         Me.radioBluesGuitar = New System.Windows.Forms.RadioButton()
         Me.outputInstrument = New System.Windows.Forms.GroupBox()
         Me.listInstruments = New System.Windows.Forms.ListBox()
-        Me.v = New System.Windows.Forms.GroupBox()
+        Me.groupSongLength = New System.Windows.Forms.GroupBox()
         Me.songLengthLabel = New System.Windows.Forms.Label()
         Me.lblTwo = New System.Windows.Forms.Label()
         Me.lblOne = New System.Windows.Forms.Label()
@@ -42,11 +42,11 @@ Partial Class Preferences
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tempoSlider = New System.Windows.Forms.TrackBar()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.exitPref = New System.Windows.Forms.Button()
         CType(Me.songLengthSlider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ModelInstrument.SuspendLayout()
         Me.outputInstrument.SuspendLayout()
-        Me.v.SuspendLayout()
+        Me.groupSongLength.SuspendLayout()
         Me.groupTempo.SuspendLayout()
         CType(Me.tempoSlider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -75,7 +75,7 @@ Partial Class Preferences
         Me.ModelInstrument.Size = New System.Drawing.Size(200, 147)
         Me.ModelInstrument.TabIndex = 19
         Me.ModelInstrument.TabStop = False
-        Me.ModelInstrument.Text = "Model Instrument"
+        Me.ModelInstrument.Text = "Model"
         '
         'radioMozart
         '
@@ -150,21 +150,21 @@ Partial Class Preferences
         Me.listInstruments.Size = New System.Drawing.Size(187, 260)
         Me.listInstruments.TabIndex = 0
         '
-        'v
+        'groupSongLength
         '
-        Me.v.Controls.Add(Me.songLengthLabel)
-        Me.v.Controls.Add(Me.lblTwo)
-        Me.v.Controls.Add(Me.lblOne)
-        Me.v.Controls.Add(Me.lblTen)
-        Me.v.Controls.Add(Me.songLengthSlider)
-        Me.v.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.v.ForeColor = System.Drawing.Color.White
-        Me.v.Location = New System.Drawing.Point(229, 23)
-        Me.v.Name = "v"
-        Me.v.Size = New System.Drawing.Size(319, 147)
-        Me.v.TabIndex = 21
-        Me.v.TabStop = False
-        Me.v.Text = "Song Length"
+        Me.groupSongLength.Controls.Add(Me.songLengthLabel)
+        Me.groupSongLength.Controls.Add(Me.lblTwo)
+        Me.groupSongLength.Controls.Add(Me.lblOne)
+        Me.groupSongLength.Controls.Add(Me.lblTen)
+        Me.groupSongLength.Controls.Add(Me.songLengthSlider)
+        Me.groupSongLength.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.groupSongLength.ForeColor = System.Drawing.Color.White
+        Me.groupSongLength.Location = New System.Drawing.Point(229, 23)
+        Me.groupSongLength.Name = "groupSongLength"
+        Me.groupSongLength.Size = New System.Drawing.Size(319, 147)
+        Me.groupSongLength.TabIndex = 21
+        Me.groupSongLength.TabStop = False
+        Me.groupSongLength.Text = "Song Length"
         '
         'songLengthLabel
         '
@@ -282,17 +282,17 @@ Partial Class Preferences
         Me.tempoSlider.TickFrequency = 10
         Me.tempoSlider.Value = 20
         '
-        'Button1
+        'exitPref
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(281, 382)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(212, 36)
-        Me.Button1.TabIndex = 23
-        Me.Button1.Text = "Confirm"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.exitPref.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.exitPref.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.exitPref.ForeColor = System.Drawing.Color.White
+        Me.exitPref.Location = New System.Drawing.Point(281, 382)
+        Me.exitPref.Name = "exitPref"
+        Me.exitPref.Size = New System.Drawing.Size(212, 36)
+        Me.exitPref.TabIndex = 23
+        Me.exitPref.Text = "Confirm"
+        Me.exitPref.UseVisualStyleBackColor = False
         '
         'Preferences
         '
@@ -300,9 +300,9 @@ Partial Class Preferences
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(560, 491)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.exitPref)
         Me.Controls.Add(Me.groupTempo)
-        Me.Controls.Add(Me.v)
+        Me.Controls.Add(Me.groupSongLength)
         Me.Controls.Add(Me.outputInstrument)
         Me.Controls.Add(Me.ModelInstrument)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -312,8 +312,8 @@ Partial Class Preferences
         Me.ModelInstrument.ResumeLayout(False)
         Me.ModelInstrument.PerformLayout()
         Me.outputInstrument.ResumeLayout(False)
-        Me.v.ResumeLayout(False)
-        Me.v.PerformLayout()
+        Me.groupSongLength.ResumeLayout(False)
+        Me.groupSongLength.PerformLayout()
         Me.groupTempo.ResumeLayout(False)
         Me.groupTempo.PerformLayout()
         CType(Me.tempoSlider, System.ComponentModel.ISupportInitialize).EndInit()
@@ -329,7 +329,7 @@ Partial Class Preferences
     Friend WithEvents outputInstrument As GroupBox
     Friend WithEvents listInstruments As ListBox
     Friend WithEvents radioMozart As RadioButton
-    Friend WithEvents v As GroupBox
+    Friend WithEvents groupSongLength As GroupBox
     Friend WithEvents lblTwo As Label
     Friend WithEvents lblOne As Label
     Friend WithEvents lblTen As Label
@@ -341,5 +341,5 @@ Partial Class Preferences
     Friend WithEvents tempoSlider As TrackBar
     Friend WithEvents songLengthLabel As Label
     Friend WithEvents tempoLabel As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents exitPref As Button
 End Class

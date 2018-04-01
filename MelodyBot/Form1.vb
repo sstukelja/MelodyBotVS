@@ -6,12 +6,42 @@ Public Class Form1
     'Initialization for page
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "MelodyBot"
-        Me.BackColor = SystemColors.GradientInactiveCaption
         AxWindowsMediaPlayer1.Hide()
         btnPause.Hide()
 
         volumeSlider.Value = AxWindowsMediaPlayer1.settings.volume
         volumeVal.Text = volumeSlider.Value.ToString
+    End Sub
+
+    'click and drag the window
+    Private isMouseDown As Boolean = False
+    Private mouseOffset As Point
+
+    ' Left mouse button pressed
+    Private Sub Form1_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            ' Get the new position
+            mouseOffset = New Point(-e.X, -e.Y)
+            ' Set that left button is pressed
+            isMouseDown = True
+        End If
+    End Sub
+
+    ' MouseMove used to check if mouse cursor is moving
+    Private Sub Form1_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
+        If isMouseDown Then
+            Dim mousePos As Point = Control.MousePosition
+            ' Get the new form position
+            mousePos.Offset(mouseOffset.X, mouseOffset.Y)
+            Me.Location = mousePos
+        End If
+    End Sub
+
+    ' Left mouse button released, form should stop moving
+    Private Sub Form1_MouseUp(sender As Object, e As MouseEventArgs) Handles Me.MouseUp
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            isMouseDown = False
+        End If
     End Sub
 
     'Button for file play
@@ -36,39 +66,44 @@ Public Class Form1
     Private Sub btnGenerate_Click(sender As Object, e As EventArgs) Handles btnGenerate.Click
         Dim OpenCMD
         Dim Genre As String = String.Empty
+        Dim output As Integer = 0
         Dim cmd As String = "python RNN_Sampler.py "
 
         If (Preferences.radioBluesGuitar.Checked) Then
-            Genre = "bluesGuitar"
+            Genre = "bluesGuitar "
         End If
 
         If (Preferences.radioJazzPiano.Checked) Then
-            Genre = "jazzPiano"
+            Genre = "jazzPiano "
         End If
 
         If (Preferences.radioClassicalViolin.Checked) Then
-            Genre = "classicalViolin"
+            Genre = "classicalViolin "
+        End If
+
+        If (Preferences.radioMozart.Checked) Then
+            Genre = "mozartPiano "
         End If
 
         If (Genre.Equals(String.Empty)) Then
             Throw New ArgumentException("Exception Occured")
         End If
 
-        Dim command As String = String.Concat(cmd, Genre)
+        output = Preferences.listInstruments.SelectedIndex
 
-        'OpenCMD = CreateObject("wscript.shell")
-        'OpenCMD.CurrentDirectory = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData"
-        'OpenCMD.run(command)
+        Dim command As String = String.Concat(cmd, Genre, output)
 
-        Dim p As New Process
-        p.StartInfo.FileName = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData\RNN_Sampler.py"
-        p.StartInfo.Arguments = Genre
-        p.Start()
+        OpenCMD = CreateObject("wscript.shell")
+        OpenCMD.CurrentDirectory = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData"
+        OpenCMD.run(command)
 
-        Form2.ShowDialog()
+        'Dim p As New Process
+        'p.StartInfo.FileName = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData\RNN_Sampler.py"
+        'p.StartInfo.Arguments = Genre & output
+        'p.Start()
 
         Dim filePath As String = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData\active_samples"
-        Dim fileName As String = String.Concat(Genre, "Sample.mid")
+        Dim fileName As String = String.Concat(Genre, (Preferences.listInstruments.SelectedItem), "Sample.mid")
         Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(String.Concat(filePath, fileName), fileName)
 
         If (songTuples.IndexOf(newTuple).Equals(-1)) Then
@@ -82,31 +117,33 @@ Public Class Form1
             listSamples.SelectedIndex = -1
         End If
 
+        Form2.ShowDialog()
+
     End Sub
 
     'Hovering over buttons change color
     'play button
     Private Sub btnPlay_Enter(sender As Object, e As EventArgs) Handles btnPlay.MouseEnter
-        btnPlay.BackColor = SystemColors.MenuHighlight
+        btnPlay.BackColor = Color.Gray
     End Sub
     Private Sub btnPlay_Leave(sender As Object, e As EventArgs) Handles btnPlay.MouseLeave
-        btnPlay.BackColor = Color.RoyalBlue
+        btnPlay.BackColor = Color.FromArgb(64, 64, 64)
     End Sub
 
     'pausebutton
     Private Sub btnPause_Enter(sender As Object, e As EventArgs) Handles btnPause.MouseEnter
-        btnPause.BackColor = SystemColors.MenuHighlight
+        btnPause.BackColor = Color.Gray
     End Sub
     Private Sub btnPause_Leave(sender As Object, e As EventArgs) Handles btnPause.MouseLeave
-        btnPause.BackColor = Color.RoyalBlue
+        btnPause.BackColor = Color.FromArgb(64, 64, 64)
     End Sub
 
     'generate button
     Private Sub btnGenerate_Enter(sender As Object, e As EventArgs) Handles btnGenerate.MouseEnter
-        btnGenerate.BackColor = SystemColors.MenuHighlight
+        btnGenerate.BackColor = Color.Gray
     End Sub
     Private Sub btnGenerate_Leave(sender As Object, e As EventArgs) Handles btnGenerate.MouseLeave
-        btnGenerate.BackColor = Color.RoyalBlue
+        btnGenerate.BackColor = Color.FromArgb(64, 64, 64)
     End Sub
 
     'volume change
@@ -168,7 +205,7 @@ Public Class Form1
         Process.Start("https://jsannicolas.github.io/CS-426-MelodyBot/")
     End Sub
 
-    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
-
+    Private Sub exitMain_Click(sender As Object, e As EventArgs) Handles exitMain.Click
+        Application.Exit()
     End Sub
 End Class
