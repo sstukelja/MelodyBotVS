@@ -22,6 +22,7 @@ Partial Class Preferences
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.songLengthSlider = New System.Windows.Forms.TrackBar()
         Me.ModelInstrument = New System.Windows.Forms.GroupBox()
         Me.radioJimi = New System.Windows.Forms.RadioButton()
@@ -45,8 +46,10 @@ Partial Class Preferences
         Me.tempoSlider = New System.Windows.Forms.TrackBar()
         Me.exitPref = New System.Windows.Forms.Button()
         Me.groupSeed = New System.Windows.Forms.GroupBox()
-        Me.seedNum = New System.Windows.Forms.TextBox()
         Me.buttonRandom = New System.Windows.Forms.Button()
+        Me.seedNum = New System.Windows.Forms.TextBox()
+        Me.ModelTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.SeedTip = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.songLengthSlider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ModelInstrument.SuspendLayout()
         Me.outputInstrument.SuspendLayout()
@@ -84,6 +87,7 @@ Partial Class Preferences
         Me.ModelInstrument.TabIndex = 19
         Me.ModelInstrument.TabStop = False
         Me.ModelInstrument.Text = "Model"
+        Me.ModelTip.SetToolTip(Me.ModelInstrument, "Type of music the neural network has learned from.")
         '
         'radioJimi
         '
@@ -327,26 +331,33 @@ Partial Class Preferences
         Me.groupSeed.TabIndex = 22
         Me.groupSeed.TabStop = False
         Me.groupSeed.Text = "Seed"
-        '
-        'seedNum
-        '
-        Me.seedNum.Location = New System.Drawing.Point(9, 30)
-        Me.seedNum.Name = "seedNum"
-        Me.seedNum.Size = New System.Drawing.Size(119, 31)
-        Me.seedNum.TabIndex = 24
-        Me.seedNum.Text = "0"
+        Me.SeedTip.SetToolTip(Me.groupSeed, "Value for the procedurally generated music to start from.")
         '
         'buttonRandom
         '
         Me.buttonRandom.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.buttonRandom.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.buttonRandom.ForeColor = System.Drawing.Color.White
-        Me.buttonRandom.Location = New System.Drawing.Point(134, 30)
+        Me.buttonRandom.Location = New System.Drawing.Point(123, 49)
         Me.buttonRandom.Name = "buttonRandom"
         Me.buttonRandom.Size = New System.Drawing.Size(179, 31)
         Me.buttonRandom.TabIndex = 24
         Me.buttonRandom.Text = "Generate Random Seed"
         Me.buttonRandom.UseVisualStyleBackColor = False
+        '
+        'seedNum
+        '
+        Me.seedNum.Location = New System.Drawing.Point(24, 50)
+        Me.seedNum.Name = "seedNum"
+        Me.seedNum.Size = New System.Drawing.Size(78, 31)
+        Me.seedNum.TabIndex = 24
+        Me.seedNum.Text = "000000"
+        '
+        'ModelTip
+        '
+        Me.ModelTip.ShowAlways = True
+        Me.ModelTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ModelTip.ToolTipTitle = "Model description"
         '
         'Preferences
         '
@@ -403,4 +414,6 @@ Partial Class Preferences
     Friend WithEvents groupSeed As GroupBox
     Friend WithEvents seedNum As TextBox
     Friend WithEvents buttonRandom As Button
+    Friend WithEvents ModelTip As ToolTip
+    Friend WithEvents SeedTip As ToolTip
 End Class
