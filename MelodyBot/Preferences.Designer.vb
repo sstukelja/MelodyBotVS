@@ -24,6 +24,7 @@ Partial Class Preferences
     Private Sub InitializeComponent()
         Me.songLengthSlider = New System.Windows.Forms.TrackBar()
         Me.ModelInstrument = New System.Windows.Forms.GroupBox()
+        Me.radioJimi = New System.Windows.Forms.RadioButton()
         Me.radioMozart = New System.Windows.Forms.RadioButton()
         Me.radioClassicalViolin = New System.Windows.Forms.RadioButton()
         Me.radioJazzPiano = New System.Windows.Forms.RadioButton()
@@ -43,27 +44,35 @@ Partial Class Preferences
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tempoSlider = New System.Windows.Forms.TrackBar()
         Me.exitPref = New System.Windows.Forms.Button()
+        Me.groupSeed = New System.Windows.Forms.GroupBox()
+        Me.seedNum = New System.Windows.Forms.TextBox()
+        Me.radioReuse = New System.Windows.Forms.RadioButton()
+        Me.radioRandom = New System.Windows.Forms.RadioButton()
         CType(Me.songLengthSlider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ModelInstrument.SuspendLayout()
         Me.outputInstrument.SuspendLayout()
         Me.groupSongLength.SuspendLayout()
         Me.groupTempo.SuspendLayout()
         CType(Me.tempoSlider, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.groupSeed.SuspendLayout()
         Me.SuspendLayout()
         '
         'songLengthSlider
         '
+        Me.songLengthSlider.LargeChange = 1000
         Me.songLengthSlider.Location = New System.Drawing.Point(6, 50)
-        Me.songLengthSlider.Maximum = 120
-        Me.songLengthSlider.Minimum = 10
+        Me.songLengthSlider.Maximum = 200000
+        Me.songLengthSlider.Minimum = 5000
         Me.songLengthSlider.Name = "songLengthSlider"
         Me.songLengthSlider.Size = New System.Drawing.Size(307, 45)
+        Me.songLengthSlider.SmallChange = 500
         Me.songLengthSlider.TabIndex = 0
-        Me.songLengthSlider.TickFrequency = 10
-        Me.songLengthSlider.Value = 10
+        Me.songLengthSlider.TickFrequency = 10000
+        Me.songLengthSlider.Value = 20000
         '
         'ModelInstrument
         '
+        Me.ModelInstrument.Controls.Add(Me.radioJimi)
         Me.ModelInstrument.Controls.Add(Me.radioMozart)
         Me.ModelInstrument.Controls.Add(Me.radioClassicalViolin)
         Me.ModelInstrument.Controls.Add(Me.radioJazzPiano)
@@ -77,13 +86,25 @@ Partial Class Preferences
         Me.ModelInstrument.TabStop = False
         Me.ModelInstrument.Text = "Model"
         '
+        'radioJimi
+        '
+        Me.radioJimi.AutoSize = True
+        Me.radioJimi.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radioJimi.Location = New System.Drawing.Point(11, 122)
+        Me.radioJimi.Name = "radioJimi"
+        Me.radioJimi.Size = New System.Drawing.Size(151, 22)
+        Me.radioJimi.TabIndex = 21
+        Me.radioJimi.TabStop = True
+        Me.radioJimi.Text = "Jimi Hendrix Guitar"
+        Me.radioJimi.UseVisualStyleBackColor = True
+        '
         'radioMozart
         '
         Me.radioMozart.AutoSize = True
-        Me.radioMozart.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radioMozart.Location = New System.Drawing.Point(12, 105)
+        Me.radioMozart.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radioMozart.Location = New System.Drawing.Point(12, 97)
         Me.radioMozart.Name = "radioMozart"
-        Me.radioMozart.Size = New System.Drawing.Size(137, 28)
+        Me.radioMozart.Size = New System.Drawing.Size(115, 22)
         Me.radioMozart.TabIndex = 20
         Me.radioMozart.TabStop = True
         Me.radioMozart.Text = "Mozart Piano"
@@ -92,10 +113,10 @@ Partial Class Preferences
         'radioClassicalViolin
         '
         Me.radioClassicalViolin.AutoSize = True
-        Me.radioClassicalViolin.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radioClassicalViolin.Location = New System.Drawing.Point(11, 80)
+        Me.radioClassicalViolin.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radioClassicalViolin.Location = New System.Drawing.Point(11, 72)
         Me.radioClassicalViolin.Name = "radioClassicalViolin"
-        Me.radioClassicalViolin.Size = New System.Drawing.Size(153, 28)
+        Me.radioClassicalViolin.Size = New System.Drawing.Size(125, 22)
         Me.radioClassicalViolin.TabIndex = 19
         Me.radioClassicalViolin.TabStop = True
         Me.radioClassicalViolin.Text = "Classical Violin"
@@ -104,10 +125,10 @@ Partial Class Preferences
         'radioJazzPiano
         '
         Me.radioJazzPiano.AutoSize = True
-        Me.radioJazzPiano.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radioJazzPiano.Location = New System.Drawing.Point(11, 55)
+        Me.radioJazzPiano.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radioJazzPiano.Location = New System.Drawing.Point(11, 47)
         Me.radioJazzPiano.Name = "radioJazzPiano"
-        Me.radioJazzPiano.Size = New System.Drawing.Size(118, 28)
+        Me.radioJazzPiano.Size = New System.Drawing.Size(100, 22)
         Me.radioJazzPiano.TabIndex = 18
         Me.radioJazzPiano.TabStop = True
         Me.radioJazzPiano.Text = "Jazz Piano"
@@ -116,10 +137,10 @@ Partial Class Preferences
         'radioBluesGuitar
         '
         Me.radioBluesGuitar.AutoSize = True
-        Me.radioBluesGuitar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radioBluesGuitar.Location = New System.Drawing.Point(11, 30)
+        Me.radioBluesGuitar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radioBluesGuitar.Location = New System.Drawing.Point(11, 22)
         Me.radioBluesGuitar.Name = "radioBluesGuitar"
-        Me.radioBluesGuitar.Size = New System.Drawing.Size(129, 28)
+        Me.radioBluesGuitar.Size = New System.Drawing.Size(107, 22)
         Me.radioBluesGuitar.TabIndex = 17
         Me.radioBluesGuitar.TabStop = True
         Me.radioBluesGuitar.Text = "Blues Guitar"
@@ -164,13 +185,13 @@ Partial Class Preferences
         Me.groupSongLength.Size = New System.Drawing.Size(319, 147)
         Me.groupSongLength.TabIndex = 21
         Me.groupSongLength.TabStop = False
-        Me.groupSongLength.Text = "Song Length"
+        Me.groupSongLength.Text = "Song Length (Events)"
         '
         'songLengthLabel
         '
-        Me.songLengthLabel.Location = New System.Drawing.Point(110, 27)
+        Me.songLengthLabel.Location = New System.Drawing.Point(61, 27)
         Me.songLengthLabel.Name = "songLengthLabel"
-        Me.songLengthLabel.Size = New System.Drawing.Size(100, 24)
+        Me.songLengthLabel.Size = New System.Drawing.Size(189, 24)
         Me.songLengthLabel.TabIndex = 8
         Me.songLengthLabel.Text = "000"
         Me.songLengthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -179,21 +200,20 @@ Partial Class Preferences
         '
         Me.lblTwo.AutoSize = True
         Me.lblTwo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTwo.Location = New System.Drawing.Point(273, 83)
+        Me.lblTwo.Location = New System.Drawing.Point(272, 83)
         Me.lblTwo.Name = "lblTwo"
         Me.lblTwo.Size = New System.Drawing.Size(44, 18)
         Me.lblTwo.TabIndex = 7
-        Me.lblTwo.Text = "2 min"
+        Me.lblTwo.Text = "200 k"
         '
         'lblOne
         '
         Me.lblOne.AutoSize = True
         Me.lblOne.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOne.Location = New System.Drawing.Point(134, 83)
+        Me.lblOne.Location = New System.Drawing.Point(81, 83)
         Me.lblOne.Name = "lblOne"
-        Me.lblOne.Size = New System.Drawing.Size(44, 18)
+        Me.lblOne.Size = New System.Drawing.Size(0, 18)
         Me.lblOne.TabIndex = 6
-        Me.lblOne.Text = "1 min"
         '
         'lblTen
         '
@@ -201,9 +221,9 @@ Partial Class Preferences
         Me.lblTen.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTen.Location = New System.Drawing.Point(3, 83)
         Me.lblTen.Name = "lblTen"
-        Me.lblTen.Size = New System.Drawing.Size(52, 18)
+        Me.lblTen.Size = New System.Drawing.Size(28, 18)
         Me.lblTen.TabIndex = 5
-        Me.lblTen.Text = "10 sec"
+        Me.lblTen.Text = "5 k"
         '
         'groupTempo
         '
@@ -224,9 +244,9 @@ Partial Class Preferences
         '
         'tempoLabel
         '
-        Me.tempoLabel.Location = New System.Drawing.Point(108, 32)
+        Me.tempoLabel.Location = New System.Drawing.Point(69, 32)
         Me.tempoLabel.Name = "tempoLabel"
-        Me.tempoLabel.Size = New System.Drawing.Size(100, 31)
+        Me.tempoLabel.Size = New System.Drawing.Size(184, 31)
         Me.tempoLabel.TabIndex = 0
         Me.tempoLabel.Text = "000"
         Me.tempoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -235,31 +255,31 @@ Partial Class Preferences
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(194, 82)
+        Me.Label4.Location = New System.Drawing.Point(184, 82)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(32, 18)
+        Me.Label4.Size = New System.Drawing.Size(40, 18)
         Me.Label4.TabIndex = 8
-        Me.Label4.Text = "140"
+        Me.Label4.Text = "1000"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(284, 82)
+        Me.Label1.Location = New System.Drawing.Point(273, 83)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(32, 18)
+        Me.Label1.Size = New System.Drawing.Size(40, 18)
         Me.Label1.TabIndex = 7
-        Me.Label1.Text = "200"
+        Me.Label1.Text = "1500"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(104, 82)
+        Me.Label2.Location = New System.Drawing.Point(94, 82)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(24, 18)
+        Me.Label2.Size = New System.Drawing.Size(32, 18)
         Me.Label2.TabIndex = 6
-        Me.Label2.Text = "80"
+        Me.Label2.Text = "500"
         '
         'Label3
         '
@@ -273,26 +293,74 @@ Partial Class Preferences
         '
         'tempoSlider
         '
+        Me.tempoSlider.LargeChange = 10
         Me.tempoSlider.Location = New System.Drawing.Point(6, 56)
-        Me.tempoSlider.Maximum = 200
+        Me.tempoSlider.Maximum = 1500
         Me.tempoSlider.Minimum = 20
         Me.tempoSlider.Name = "tempoSlider"
         Me.tempoSlider.Size = New System.Drawing.Size(307, 45)
+        Me.tempoSlider.SmallChange = 5
         Me.tempoSlider.TabIndex = 0
-        Me.tempoSlider.TickFrequency = 10
-        Me.tempoSlider.Value = 20
+        Me.tempoSlider.TickFrequency = 100
+        Me.tempoSlider.Value = 120
         '
         'exitPref
         '
         Me.exitPref.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.exitPref.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.exitPref.ForeColor = System.Drawing.Color.White
-        Me.exitPref.Location = New System.Drawing.Point(281, 382)
+        Me.exitPref.Location = New System.Drawing.Point(277, 443)
         Me.exitPref.Name = "exitPref"
         Me.exitPref.Size = New System.Drawing.Size(212, 36)
         Me.exitPref.TabIndex = 23
         Me.exitPref.Text = "Confirm"
         Me.exitPref.UseVisualStyleBackColor = False
+        '
+        'groupSeed
+        '
+        Me.groupSeed.Controls.Add(Me.seedNum)
+        Me.groupSeed.Controls.Add(Me.radioReuse)
+        Me.groupSeed.Controls.Add(Me.radioRandom)
+        Me.groupSeed.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.groupSeed.ForeColor = System.Drawing.Color.White
+        Me.groupSeed.Location = New System.Drawing.Point(226, 329)
+        Me.groupSeed.Name = "groupSeed"
+        Me.groupSeed.Size = New System.Drawing.Size(319, 108)
+        Me.groupSeed.TabIndex = 22
+        Me.groupSeed.TabStop = False
+        Me.groupSeed.Text = "Seed"
+        '
+        'seedNum
+        '
+        Me.seedNum.Location = New System.Drawing.Point(9, 30)
+        Me.seedNum.Name = "seedNum"
+        Me.seedNum.Size = New System.Drawing.Size(119, 31)
+        Me.seedNum.TabIndex = 24
+        Me.seedNum.Text = "0"
+        '
+        'radioReuse
+        '
+        Me.radioReuse.AutoSize = True
+        Me.radioReuse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radioReuse.Location = New System.Drawing.Point(140, 56)
+        Me.radioReuse.Name = "radioReuse"
+        Me.radioReuse.Size = New System.Drawing.Size(162, 20)
+        Me.radioReuse.TabIndex = 23
+        Me.radioReuse.TabStop = True
+        Me.radioReuse.Text = "Reuse the Same Seed"
+        Me.radioReuse.UseVisualStyleBackColor = True
+        '
+        'radioRandom
+        '
+        Me.radioRandom.AutoSize = True
+        Me.radioRandom.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radioRandom.Location = New System.Drawing.Point(140, 30)
+        Me.radioRandom.Name = "radioRandom"
+        Me.radioRandom.Size = New System.Drawing.Size(173, 20)
+        Me.radioRandom.TabIndex = 22
+        Me.radioRandom.TabStop = True
+        Me.radioRandom.Text = "Generate Random Seed"
+        Me.radioRandom.UseVisualStyleBackColor = True
         '
         'Preferences
         '
@@ -300,6 +368,7 @@ Partial Class Preferences
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(560, 491)
+        Me.Controls.Add(Me.groupSeed)
         Me.Controls.Add(Me.exitPref)
         Me.Controls.Add(Me.groupTempo)
         Me.Controls.Add(Me.groupSongLength)
@@ -317,6 +386,8 @@ Partial Class Preferences
         Me.groupTempo.ResumeLayout(False)
         Me.groupTempo.PerformLayout()
         CType(Me.tempoSlider, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.groupSeed.ResumeLayout(False)
+        Me.groupSeed.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -342,4 +413,9 @@ Partial Class Preferences
     Friend WithEvents songLengthLabel As Label
     Friend WithEvents tempoLabel As Label
     Friend WithEvents exitPref As Button
+    Friend WithEvents radioJimi As RadioButton
+    Friend WithEvents groupSeed As GroupBox
+    Friend WithEvents seedNum As TextBox
+    Friend WithEvents radioReuse As RadioButton
+    Friend WithEvents radioRandom As RadioButton
 End Class
