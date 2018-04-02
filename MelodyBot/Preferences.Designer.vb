@@ -46,8 +46,7 @@ Partial Class Preferences
         Me.exitPref = New System.Windows.Forms.Button()
         Me.groupSeed = New System.Windows.Forms.GroupBox()
         Me.seedNum = New System.Windows.Forms.TextBox()
-        Me.radioReuse = New System.Windows.Forms.RadioButton()
-        Me.radioRandom = New System.Windows.Forms.RadioButton()
+        Me.buttonRandom = New System.Windows.Forms.Button()
         CType(Me.songLengthSlider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ModelInstrument.SuspendLayout()
         Me.outputInstrument.SuspendLayout()
@@ -185,7 +184,7 @@ Partial Class Preferences
         Me.groupSongLength.Size = New System.Drawing.Size(319, 147)
         Me.groupSongLength.TabIndex = 21
         Me.groupSongLength.TabStop = False
-        Me.groupSongLength.Text = "Song Length (Events)"
+        Me.groupSongLength.Text = "Song Length"
         '
         'songLengthLabel
         '
@@ -318,9 +317,8 @@ Partial Class Preferences
         '
         'groupSeed
         '
+        Me.groupSeed.Controls.Add(Me.buttonRandom)
         Me.groupSeed.Controls.Add(Me.seedNum)
-        Me.groupSeed.Controls.Add(Me.radioReuse)
-        Me.groupSeed.Controls.Add(Me.radioRandom)
         Me.groupSeed.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.groupSeed.ForeColor = System.Drawing.Color.White
         Me.groupSeed.Location = New System.Drawing.Point(226, 329)
@@ -338,29 +336,17 @@ Partial Class Preferences
         Me.seedNum.TabIndex = 24
         Me.seedNum.Text = "0"
         '
-        'radioReuse
+        'buttonRandom
         '
-        Me.radioReuse.AutoSize = True
-        Me.radioReuse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radioReuse.Location = New System.Drawing.Point(140, 56)
-        Me.radioReuse.Name = "radioReuse"
-        Me.radioReuse.Size = New System.Drawing.Size(162, 20)
-        Me.radioReuse.TabIndex = 23
-        Me.radioReuse.TabStop = True
-        Me.radioReuse.Text = "Reuse the Same Seed"
-        Me.radioReuse.UseVisualStyleBackColor = True
-        '
-        'radioRandom
-        '
-        Me.radioRandom.AutoSize = True
-        Me.radioRandom.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radioRandom.Location = New System.Drawing.Point(140, 30)
-        Me.radioRandom.Name = "radioRandom"
-        Me.radioRandom.Size = New System.Drawing.Size(173, 20)
-        Me.radioRandom.TabIndex = 22
-        Me.radioRandom.TabStop = True
-        Me.radioRandom.Text = "Generate Random Seed"
-        Me.radioRandom.UseVisualStyleBackColor = True
+        Me.buttonRandom.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.buttonRandom.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonRandom.ForeColor = System.Drawing.Color.White
+        Me.buttonRandom.Location = New System.Drawing.Point(134, 30)
+        Me.buttonRandom.Name = "buttonRandom"
+        Me.buttonRandom.Size = New System.Drawing.Size(179, 31)
+        Me.buttonRandom.TabIndex = 24
+        Me.buttonRandom.Text = "Generate Random Seed"
+        Me.buttonRandom.UseVisualStyleBackColor = False
         '
         'Preferences
         '
@@ -416,6 +402,5 @@ Partial Class Preferences
     Friend WithEvents radioJimi As RadioButton
     Friend WithEvents groupSeed As GroupBox
     Friend WithEvents seedNum As TextBox
-    Friend WithEvents radioReuse As RadioButton
-    Friend WithEvents radioRandom As RadioButton
+    Friend WithEvents buttonRandom As Button
 End Class

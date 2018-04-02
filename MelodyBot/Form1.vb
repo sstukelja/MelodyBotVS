@@ -4,11 +4,12 @@ Imports System.IO
 
 
 Public Class Form1
-
     Dim songTuples As New List(Of Tuple(Of String, String))
+    Dim x As Integer = 0
     'Initialization for page
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "MelodyBot"
+        btnGenerate.Show()
         AxWindowsMediaPlayer1.Hide()
         btnPause.Hide()
 
@@ -65,6 +66,42 @@ Public Class Form1
         btnPause.Hide()
     End Sub
 
+    '8 second timer
+    Public Sub runTimer()
+        Dim timer As New System.Timers.Timer()
+        timer.Interval = 8000
+        AddHandler timer.Elapsed, AddressOf OnTimedEvent
+        timer.AutoReset = False
+        timer.Enabled = True
+    End Sub
+
+    Private Delegate Sub ShowButtonCallBack()
+
+    'shows generate button and opens dialog box
+    Private Sub ShowButton()
+        If InvokeRequired Then
+            Dim x As New ShowButtonCallBack(AddressOf ShowButton)
+            Invoke(x, Nothing)
+        Else
+            btnGenerate.Show()
+            OpenFileDialog1.InitialDirectory = Directory.GetCurrentDirectory + "\active_samples\"
+
+            If (OpenFileDialog1.ShowDialog = DialogResult.OK) Then
+                Dim start As Integer = OpenFileDialog1.FileName.LastIndexOf("\")
+                Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(OpenFileDialog1.FileName, OpenFileDialog1.FileName.Substring(start + 1))
+
+                songTuples.Add(newTuple)
+                listSamples.Items.Add(newTuple.Item2)
+                Console.WriteLine(newTuple)
+            End If
+        End If
+    End Sub
+
+    Private Sub OnTimedEvent(source As Object, e As System.Timers.ElapsedEventArgs)
+        ShowButton()
+    End Sub
+
+
     'Button to invoke RNN
     Private Sub btnGenerate_Click(sender As Object, e As EventArgs) Handles btnGenerate.Click
         Dim OpenCMD
@@ -76,10 +113,7 @@ Public Class Form1
         Dim cmd As String = "python RNN_Sampler.py "
 
         btnGenerate.Hide()
-        Timer2.Interval = 5000
-        Timer2.Enabled = True
-        Timer2.Start()
-        btnGenerate.Show()
+        runTimer()
 
         If (Preferences.radioBluesGuitar.Checked) Then
             Genre = "bluesGuitar "
@@ -111,12 +145,12 @@ Public Class Form1
         length = Preferences.songLengthSlider.Value
 
         Dim command As String = String.Concat(cmd, Genre, output, " ", tempo, " ", seed, " ", length)
-        MsgBox(command)
+        'MsgBox(command)
 
-        'OpenCMD = CreateObject("wscript.shell")
+        OpenCMD = CreateObject("wscript.shell")
         'OpenCMD.CurrentDirectory = "C:\Users\Lepi\Desktop\CS425\RNN_MelodyBot_NoData"
-        'OpenCMD.CurrentDirectory = "../../RNN_MelodyBot_NoData"
-        'OpenCMD.run(command)
+        OpenCMD.CurrentDirectory = "../../RNN_MelodyBot_NoData"
+        OpenCMD.run(command)
 
         'Dim p As New Process
         'p.StartInfo.FileName = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData\RNN_Sampler.py"
@@ -128,16 +162,16 @@ Public Class Form1
         'Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(String.Concat(filePath, fileName), fileName)
 
 
-        OpenFileDialog1.InitialDirectory = Directory.GetCurrentDirectory + "\active_samples\"
+        'OpenFileDialog1.InitialDirectory = Directory.GetCurrentDirectory + "\active_samples\"
 
-        If (OpenFileDialog1.ShowDialog = DialogResult.OK) Then
-            Dim start As Integer = OpenFileDialog1.FileName.LastIndexOf("\")
-            Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(OpenFileDialog1.FileName, OpenFileDialog1.FileName.Substring(start + 1))
+        'If (OpenFileDialog1.ShowDialog = DialogResult.OK) Then
+        '    Dim start As Integer = OpenFileDialog1.FileName.LastIndexOf("\")
+        '    Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(OpenFileDialog1.FileName, OpenFileDialog1.FileName.Substring(start + 1))
 
-            songTuples.Add(newTuple)
-            listSamples.Items.Add(newTuple.Item2)
-            Console.WriteLine(newTuple)
-        End If
+        '    songTuples.Add(newTuple)
+        '    listSamples.Items.Add(newTuple.Item2)
+        '    Console.WriteLine(newTuple)
+        'End If
 
 
         OpenCMD.CurrentDirectory = "../bin/Debug"
@@ -229,7 +263,7 @@ Public Class Form1
     End Sub
 
     'Go To Preferences
-    Private Sub PreferencesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PHToolStripMenuItem.Click
+    Private Sub Settings_Click(sender As Object, e As EventArgs) Handles Settings.Click
         Preferences.ShowDialog()
     End Sub
 
@@ -253,4 +287,5 @@ Public Class Form1
     Private Sub GeneratingEQ_Click(sender As Object, e As EventArgs) Handles GeneratingEQ.Click
 
     End Sub
+
 End Class

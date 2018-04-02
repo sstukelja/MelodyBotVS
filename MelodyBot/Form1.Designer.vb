@@ -33,9 +33,6 @@ Partial Class Form1
         Me.ImportFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PHToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PH2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutUsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WebsiteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LicenseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -56,7 +53,7 @@ Partial Class Form1
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.GenLabel = New System.Windows.Forms.Label()
         Me.GeneratingEQ = New System.Windows.Forms.PictureBox()
-        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.Settings = New System.Windows.Forms.Button()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.volumeSlider, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,7 +106,7 @@ Partial Class Form1
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.AboutUsToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.AboutUsToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(731, 24)
@@ -143,27 +140,6 @@ Partial Class Form1
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.ExitToolStripMenuItem.Text = "Exit..."
         '
-        'EditToolStripMenuItem
-        '
-        Me.EditToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.EditToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PHToolStripMenuItem, Me.PH2ToolStripMenuItem})
-        Me.EditToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
-        Me.EditToolStripMenuItem.Text = "Edit"
-        '
-        'PHToolStripMenuItem
-        '
-        Me.PHToolStripMenuItem.Name = "PHToolStripMenuItem"
-        Me.PHToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
-        Me.PHToolStripMenuItem.Text = "Preferences..."
-        '
-        'PH2ToolStripMenuItem
-        '
-        Me.PH2ToolStripMenuItem.Name = "PH2ToolStripMenuItem"
-        Me.PH2ToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
-        Me.PH2ToolStripMenuItem.Text = "PH..."
-        '
         'AboutUsToolStripMenuItem
         '
         Me.AboutUsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -176,13 +152,13 @@ Partial Class Form1
         'WebsiteToolStripMenuItem
         '
         Me.WebsiteToolStripMenuItem.Name = "WebsiteToolStripMenuItem"
-        Me.WebsiteToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.WebsiteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.WebsiteToolStripMenuItem.Text = "Website..."
         '
         'LicenseToolStripMenuItem
         '
         Me.LicenseToolStripMenuItem.Name = "LicenseToolStripMenuItem"
-        Me.LicenseToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.LicenseToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LicenseToolStripMenuItem.Text = "License..."
         '
         'volumeSlider
@@ -366,12 +342,25 @@ Partial Class Form1
         Me.GeneratingEQ.TabIndex = 44
         Me.GeneratingEQ.TabStop = False
         '
+        'Settings
+        '
+        Me.Settings.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Settings.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Settings.ForeColor = System.Drawing.Color.White
+        Me.Settings.Location = New System.Drawing.Point(132, 397)
+        Me.Settings.Name = "Settings"
+        Me.Settings.Size = New System.Drawing.Size(109, 47)
+        Me.Settings.TabIndex = 45
+        Me.Settings.Text = "Settings"
+        Me.Settings.UseVisualStyleBackColor = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(731, 497)
+        Me.Controls.Add(Me.Settings)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.GenLabel)
         Me.Controls.Add(Me.GeneratingEQ)
@@ -419,9 +408,6 @@ Partial Class Form1
     Friend WithEvents ImportFileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RemoveFileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents PHToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents PH2ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutUsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents WebsiteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LicenseToolStripMenuItem As ToolStripMenuItem
@@ -442,5 +428,5 @@ Partial Class Form1
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents GenLabel As Label
     Friend WithEvents GeneratingEQ As PictureBox
-    Friend WithEvents Timer2 As Timer
+    Friend WithEvents Settings As Button
 End Class
