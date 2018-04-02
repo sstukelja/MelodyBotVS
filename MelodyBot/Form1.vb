@@ -266,6 +266,13 @@ Public Class Form1
     Private Sub Settings_Click(sender As Object, e As EventArgs) Handles Settings.Click
         Preferences.ShowDialog()
     End Sub
+    'settings button color change
+    Private Sub settings_Enter(sender As Object, e As EventArgs) Handles Settings.MouseEnter
+        Settings.BackColor = Color.Gray
+    End Sub
+    Private Sub settings_Leave(sender As Object, e As EventArgs) Handles Settings.MouseLeave
+        Settings.BackColor = Color.FromArgb(64, 64, 64)
+    End Sub
 
     'Go To Project Website
     Private Sub WebsiteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles WebsiteToolStripMenuItem.Click

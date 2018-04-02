@@ -6,6 +6,7 @@
         tempoLabel.Text = tempoSlider.Value.ToString + " BPM"
     End Sub
 
+    'changing value in sliders
     Private Sub songLengthSlider_change(sender As Object, e As EventArgs) Handles songLengthSlider.ValueChanged
         songLengthLabel.Text = songLengthSlider.Value.ToString + " Events"
     End Sub
@@ -14,10 +15,11 @@
         tempoLabel.Text = tempoSlider.Value.ToString + " BPM"
     End Sub
 
+    'confirm button click
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles exitPref.Click
         Me.Close()
     End Sub
-
+    'confim button color change
     Private Sub exitPref_Enter(sender As Object, e As EventArgs) Handles exitPref.MouseEnter
         exitPref.BackColor = Color.Gray
     End Sub
@@ -25,8 +27,41 @@
         exitPref.BackColor = Color.FromArgb(64, 64, 64)
     End Sub
 
-    Private Sub radioReuse_check(sender As Object, e As EventArgs)
-        num = seedNum.Text
+    'setting defaults values
+    'blues guitar
+    Private Sub bluesGuitar_Default(sender As Object, e As EventArgs) Handles radioBluesGuitar.CheckedChanged
+        If (radioBluesGuitar.Checked) Then
+            tempoSlider.Value = 960
+            listInstruments.SelectedIndex = 25
+        End If
+    End Sub
+    'jazz piano
+    Private Sub jazzPiano_Default(sender As Object, e As EventArgs) Handles radioJazzPiano.CheckedChanged
+        If (radioJazzPiano.Checked) Then
+            tempoSlider.Value = 120
+            listInstruments.SelectedIndex = 0
+        End If
+    End Sub
+    'classical violin
+    Private Sub classicalViolin_Default(sender As Object, e As EventArgs) Handles radioClassicalViolin.CheckedChanged
+        If (radioClassicalViolin.Checked) Then
+            tempoSlider.Value = 480
+            listInstruments.SelectedIndex = 40
+        End If
+    End Sub
+    'mozart piano
+    Private Sub mozart_Default(sender As Object, e As EventArgs) Handles radioMozart.CheckedChanged
+        If (radioMozart.Checked) Then
+            tempoSlider.Value = 120
+            listInstruments.SelectedIndex = 0
+        End If
+    End Sub
+    'jimi hendrix guitar
+    Private Sub jimi_Default(sender As Object, e As EventArgs) Handles radioJimi.CheckedChanged
+        If (radioJimi.Checked) Then
+            tempoSlider.Value = 960
+            listInstruments.SelectedIndex = 30
+        End If
     End Sub
 
     'click and drag the window
@@ -60,9 +95,18 @@
         End If
     End Sub
 
+    'random seed number button click
     Private Sub buttonRandom_Click(sender As Object, e As EventArgs) Handles buttonRandom.Click
         Randomize()
         num = Int(Rnd() * 1000000) + 1
         seedNum.Text = num
     End Sub
+    'random seed number color change
+    Private Sub random_Enter(sender As Object, e As EventArgs) Handles buttonRandom.MouseEnter
+        buttonRandom.BackColor = Color.Gray
+    End Sub
+    Private Sub random_Leave(sender As Object, e As EventArgs) Handles buttonRandom.MouseLeave
+        buttonRandom.BackColor = Color.FromArgb(64, 64, 64)
+    End Sub
+
 End Class
