@@ -1,11 +1,13 @@
 ﻿Public Class Preferences
+    Dim num As Integer = 0
+
     Private Sub Preferences_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        songLengthLabel.Text = songLengthSlider.Value.ToString + " seconds"
+        songLengthLabel.Text = songLengthSlider.Value.ToString + " Events"
         tempoLabel.Text = tempoSlider.Value.ToString + " BPM"
     End Sub
 
     Private Sub songLengthSlider_change(sender As Object, e As EventArgs) Handles songLengthSlider.ValueChanged
-        songLengthLabel.Text = songLengthSlider.Value.ToString + " seconds"
+        songLengthLabel.Text = songLengthSlider.Value.ToString + " Events"
     End Sub
 
     Private Sub tempoSlider_change(sender As Object, e As EventArgs) Handles tempoSlider.ValueChanged
@@ -21,6 +23,18 @@
     End Sub
     Private Sub exitPref_Leave(sender As Object, e As EventArgs) Handles exitPref.MouseLeave
         exitPref.BackColor = Color.FromArgb(64, 64, 64)
+    End Sub
+
+    Private Sub radioRandom_check(sender As Object, e As EventArgs) Handles radioRandom.CheckedChanged
+        If (radioRandom.Checked) Then
+            Randomize()
+            num = Int(Rnd() * 1000000) + 1
+            seedNum.Text = num
+        End If
+    End Sub
+
+    Private Sub radioReuse_check(sender As Object, e As EventArgs) Handles radioReuse.CheckedChanged
+        num = seedNum.Text
     End Sub
 
     'click and drag the window

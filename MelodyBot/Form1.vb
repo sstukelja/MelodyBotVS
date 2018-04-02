@@ -70,6 +70,8 @@ Public Class Form1
         Dim Genre As String = String.Empty
         Dim output As Integer = 0
         Dim tempo As Integer = 0
+        Dim seed As Integer = 0
+        Dim length As Integer = 0
         Dim cmd As String = "python RNN_Sampler.py "
 
         If (Preferences.radioBluesGuitar.Checked) Then
@@ -98,8 +100,11 @@ Public Class Form1
 
         output = Preferences.listInstruments.SelectedIndex
         tempo = Preferences.tempoSlider.Value
+        seed = Preferences.seedNum.Text
+        length = Preferences.songLengthSlider.Value
 
-        Dim command As String = String.Concat(cmd, Genre, output, " ", tempo)
+        Dim command As String = String.Concat(cmd, Genre, output, " ", tempo, " ", seed, " ", length)
+        MsgBox(command)
 
         OpenCMD = CreateObject("wscript.shell")
         'OpenCMD.CurrentDirectory = "C:\Users\Lepi\Desktop\CS425\RNN_MelodyBot_NoData"
