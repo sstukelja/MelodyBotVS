@@ -2,6 +2,7 @@
 Imports System
 Imports System.IO
 
+
 Public Class Form1
 
     Dim songTuples As New List(Of Tuple(Of String, String))
@@ -71,6 +72,12 @@ Public Class Form1
         Dim output As Integer = 0
         Dim cmd As String = "python RNN_Sampler.py "
 
+        btnGenerate.Hide()
+        Timer2.Interval = 5000
+        Timer2.Enabled = True
+        Timer2.Start()
+        btnGenerate.Show()
+
         If (Preferences.radioBluesGuitar.Checked) Then
             Genre = "bluesGuitar "
         End If
@@ -95,10 +102,10 @@ Public Class Form1
 
         Dim command As String = String.Concat(cmd, Genre, output)
 
-        OpenCMD = CreateObject("wscript.shell")
+        'OpenCMD = CreateObject("wscript.shell")
         'OpenCMD.CurrentDirectory = "C:\Users\Lepi\Desktop\CS425\RNN_MelodyBot_NoData"
-        OpenCMD.CurrentDirectory = "../../RNN_MelodyBot_NoData"
-        OpenCMD.run(command)
+        'OpenCMD.CurrentDirectory = "../../RNN_MelodyBot_NoData"
+        'OpenCMD.run(command)
 
         'Dim p As New Process
         'p.StartInfo.FileName = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData\RNN_Sampler.py"
@@ -109,7 +116,6 @@ Public Class Form1
         'Dim fileName As String = String.Concat(Genre, (Preferences.listInstruments.SelectedItem), "Sample.mid")
         'Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(String.Concat(filePath, fileName), fileName)
 
-        Form2.ShowDialog()
 
         OpenFileDialog1.InitialDirectory = Directory.GetCurrentDirectory + "\active_samples\"
 
@@ -226,6 +232,14 @@ Public Class Form1
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub GroupBox3_Enter(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub GeneratingEQ_Click(sender As Object, e As EventArgs) Handles GeneratingEQ.Click
 
     End Sub
 End Class
