@@ -54,6 +54,8 @@ Partial Class Form1
         Me.GenLabel = New System.Windows.Forms.Label()
         Me.GeneratingEQ = New System.Windows.Forms.PictureBox()
         Me.Settings = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.User_Prompt = New System.Windows.Forms.Label()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.volumeSlider, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -73,9 +75,9 @@ Partial Class Form1
         Me.listSamples.ForeColor = System.Drawing.Color.White
         Me.listSamples.FormattingEnabled = True
         Me.listSamples.ItemHeight = 25
-        Me.listSamples.Location = New System.Drawing.Point(361, 139)
+        Me.listSamples.Location = New System.Drawing.Point(361, 164)
         Me.listSamples.Name = "listSamples"
-        Me.listSamples.Size = New System.Drawing.Size(348, 254)
+        Me.listSamples.Size = New System.Drawing.Size(348, 129)
         Me.listSamples.TabIndex = 9
         '
         'OpenFileDialog1
@@ -96,9 +98,9 @@ Partial Class Form1
         Me.btnGenerate.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGenerate.ForeColor = System.Drawing.Color.White
-        Me.btnGenerate.Location = New System.Drawing.Point(51, 165)
+        Me.btnGenerate.Location = New System.Drawing.Point(51, 236)
         Me.btnGenerate.Name = "btnGenerate"
-        Me.btnGenerate.Size = New System.Drawing.Size(266, 140)
+        Me.btnGenerate.Size = New System.Drawing.Size(266, 126)
         Me.btnGenerate.TabIndex = 15
         Me.btnGenerate.Text = "Generate"
         Me.btnGenerate.UseVisualStyleBackColor = False
@@ -152,23 +154,23 @@ Partial Class Form1
         'WebsiteToolStripMenuItem
         '
         Me.WebsiteToolStripMenuItem.Name = "WebsiteToolStripMenuItem"
-        Me.WebsiteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.WebsiteToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.WebsiteToolStripMenuItem.Text = "Website..."
         '
         'LicenseToolStripMenuItem
         '
         Me.LicenseToolStripMenuItem.Name = "LicenseToolStripMenuItem"
-        Me.LicenseToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LicenseToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.LicenseToolStripMenuItem.Text = "License..."
         '
         'volumeSlider
         '
         Me.volumeSlider.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(42, Byte), Integer))
         Me.volumeSlider.LargeChange = 2
-        Me.volumeSlider.Location = New System.Drawing.Point(60, 346)
+        Me.volumeSlider.Location = New System.Drawing.Point(534, 326)
         Me.volumeSlider.Maximum = 100
         Me.volumeSlider.Name = "volumeSlider"
-        Me.volumeSlider.Size = New System.Drawing.Size(266, 45)
+        Me.volumeSlider.Size = New System.Drawing.Size(156, 45)
         Me.volumeSlider.TabIndex = 22
         Me.volumeSlider.TickFrequency = 5
         '
@@ -224,7 +226,7 @@ Partial Class Form1
         '
         Me.GroupBox3.Controls.Add(Me.ListBox2)
         Me.GroupBox3.Controls.Add(Me.ListBox1)
-        Me.GroupBox3.Location = New System.Drawing.Point(219, 27)
+        Me.GroupBox3.Location = New System.Drawing.Point(117, 407)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(200, 100)
         Me.GroupBox3.TabIndex = 21
@@ -238,7 +240,7 @@ Partial Class Form1
         Me.volumeVal.BackColor = System.Drawing.Color.Transparent
         Me.volumeVal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.volumeVal.ForeColor = System.Drawing.Color.White
-        Me.volumeVal.Location = New System.Drawing.Point(201, 326)
+        Me.volumeVal.Location = New System.Drawing.Point(636, 307)
         Me.volumeVal.Name = "volumeVal"
         Me.volumeVal.Size = New System.Drawing.Size(22, 16)
         Me.volumeVal.TabIndex = 24
@@ -250,7 +252,7 @@ Partial Class Form1
         Me.volumeLabel.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(42, Byte), Integer))
         Me.volumeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.volumeLabel.ForeColor = System.Drawing.Color.White
-        Me.volumeLabel.Location = New System.Drawing.Point(142, 326)
+        Me.volumeLabel.Location = New System.Drawing.Point(570, 307)
         Me.volumeLabel.Name = "volumeLabel"
         Me.volumeLabel.Size = New System.Drawing.Size(60, 16)
         Me.volumeLabel.TabIndex = 23
@@ -261,9 +263,9 @@ Partial Class Form1
         Me.btnPlay.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnPlay.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPlay.ForeColor = System.Drawing.Color.White
-        Me.btnPlay.Location = New System.Drawing.Point(12, 397)
+        Me.btnPlay.Location = New System.Drawing.Point(395, 316)
         Me.btnPlay.Name = "btnPlay"
-        Me.btnPlay.Size = New System.Drawing.Size(84, 47)
+        Me.btnPlay.Size = New System.Drawing.Size(97, 47)
         Me.btnPlay.TabIndex = 12
         Me.btnPlay.Text = "Play"
         Me.btnPlay.UseVisualStyleBackColor = False
@@ -271,11 +273,12 @@ Partial Class Form1
         'btnPause
         '
         Me.btnPause.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnPause.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPause.ForeColor = System.Drawing.Color.White
-        Me.btnPause.Location = New System.Drawing.Point(12, 397)
+        Me.btnPause.Location = New System.Drawing.Point(396, 315)
         Me.btnPause.Name = "btnPause"
-        Me.btnPause.Size = New System.Drawing.Size(84, 47)
+        Me.btnPause.Size = New System.Drawing.Size(97, 47)
         Me.btnPause.TabIndex = 14
         Me.btnPause.Text = "Pause"
         Me.btnPause.UseVisualStyleBackColor = False
@@ -303,7 +306,7 @@ Partial Class Form1
         'PictureBox3
         '
         Me.PictureBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(42, Byte), Integer))
-        Me.PictureBox3.Location = New System.Drawing.Point(-1, 139)
+        Me.PictureBox3.Location = New System.Drawing.Point(-1, 130)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(732, 254)
         Me.PictureBox3.TabIndex = 41
@@ -325,7 +328,7 @@ Partial Class Form1
         Me.GenLabel.BackColor = System.Drawing.Color.Transparent
         Me.GenLabel.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GenLabel.ForeColor = System.Drawing.Color.White
-        Me.GenLabel.Location = New System.Drawing.Point(128, 173)
+        Me.GenLabel.Location = New System.Drawing.Point(128, 269)
         Me.GenLabel.Name = "GenLabel"
         Me.GenLabel.Size = New System.Drawing.Size(113, 24)
         Me.GenLabel.TabIndex = 43
@@ -335,9 +338,9 @@ Partial Class Form1
         '
         Me.GeneratingEQ.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.GeneratingEQ.Image = CType(resources.GetObject("GeneratingEQ.Image"), System.Drawing.Image)
-        Me.GeneratingEQ.Location = New System.Drawing.Point(51, 165)
+        Me.GeneratingEQ.Location = New System.Drawing.Point(51, 236)
         Me.GeneratingEQ.Name = "GeneratingEQ"
-        Me.GeneratingEQ.Size = New System.Drawing.Size(266, 140)
+        Me.GeneratingEQ.Size = New System.Drawing.Size(266, 126)
         Me.GeneratingEQ.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.GeneratingEQ.TabIndex = 44
         Me.GeneratingEQ.TabStop = False
@@ -347,12 +350,33 @@ Partial Class Form1
         Me.Settings.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Settings.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Settings.ForeColor = System.Drawing.Color.White
-        Me.Settings.Location = New System.Drawing.Point(132, 397)
+        Me.Settings.Location = New System.Drawing.Point(51, 164)
         Me.Settings.Name = "Settings"
-        Me.Settings.Size = New System.Drawing.Size(109, 47)
+        Me.Settings.Size = New System.Drawing.Size(266, 55)
         Me.Settings.TabIndex = 45
         Me.Settings.Text = "Settings"
         Me.Settings.UseVisualStyleBackColor = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Letter Gothic Std", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Silver
+        Me.Label1.Location = New System.Drawing.Point(12, 35)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(218, 47)
+        Me.Label1.TabIndex = 46
+        Me.Label1.Text = "Melo♪yBot"
+        '
+        'User_Prompt
+        '
+        Me.User_Prompt.AutoSize = True
+        Me.User_Prompt.ForeColor = System.Drawing.Color.White
+        Me.User_Prompt.Location = New System.Drawing.Point(12, 114)
+        Me.User_Prompt.Name = "User_Prompt"
+        Me.User_Prompt.Size = New System.Drawing.Size(122, 13)
+        Me.User_Prompt.TabIndex = 47
+        Me.User_Prompt.Text = "Press 'Settings' to begin." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'Form1
         '
@@ -360,6 +384,8 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(731, 497)
+        Me.Controls.Add(Me.User_Prompt)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Settings)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.GenLabel)
@@ -429,4 +455,6 @@ Partial Class Form1
     Friend WithEvents GenLabel As Label
     Friend WithEvents GeneratingEQ As PictureBox
     Friend WithEvents Settings As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents User_Prompt As Label
 End Class

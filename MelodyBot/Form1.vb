@@ -264,6 +264,8 @@ Public Class Form1
 
     'Go To Preferences
     Private Sub Settings_Click(sender As Object, e As EventArgs) Handles Settings.Click
+
+        User_Prompt.Hide()
         Preferences.ShowDialog()
     End Sub
     'settings button color change
