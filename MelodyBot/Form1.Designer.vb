@@ -56,6 +56,7 @@ Partial Class Form1
         Me.Settings = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.User_Prompt = New System.Windows.Forms.Label()
+        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.volumeSlider, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -457,4 +458,5 @@ Partial Class Form1
     Friend WithEvents Settings As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents User_Prompt As Label
+    Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
 End Class

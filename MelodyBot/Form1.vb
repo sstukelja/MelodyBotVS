@@ -6,6 +6,7 @@ Imports System.IO
 Public Class Form1
     Dim songTuples As New List(Of Tuple(Of String, String))
     Dim x As Integer = 0
+    Dim sampleFolder As String = String.Empty
     'Initialization for page
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "MelodyBot"
@@ -15,6 +16,11 @@ Public Class Form1
 
         volumeSlider.Value = AxWindowsMediaPlayer1.settings.volume
         volumeVal.Text = volumeSlider.Value.ToString
+
+        MsgBox("Please select your RNN folder")
+        If (FolderBrowserDialog1.ShowDialog = DialogResult.OK) Then
+            sampleFolder = FolderBrowserDialog1.SelectedPath
+        End If
     End Sub
 
     'click and drag the window
@@ -84,7 +90,7 @@ Public Class Form1
             Invoke(x, Nothing)
         Else
             btnGenerate.Show()
-            OpenFileDialog1.InitialDirectory = Directory.GetCurrentDirectory + "\active_samples\"
+            OpenFileDialog1.InitialDirectory = sampleFolder + "\active_samples\"
 
             If (OpenFileDialog1.ShowDialog = DialogResult.OK) Then
                 Dim start As Integer = OpenFileDialog1.FileName.LastIndexOf("\")
@@ -149,8 +155,9 @@ Public Class Form1
 
         OpenCMD = CreateObject("wscript.shell")
         'OpenCMD.CurrentDirectory = "C:\Users\Lepi\Desktop\CS425\RNN_MelodyBot_NoData"
-        OpenCMD.CurrentDirectory = "../../RNN_MelodyBot_NoData"
-        OpenCMD.run(command)
+        'OpenCMD.CurrentDirectory = "../../RNN_MelodyBot_NoData"
+        Directory.SetCurrentDirectory(sampleFolder)
+        OpenCMD.run(command, 0)
 
         'Dim p As New Process
         'p.StartInfo.FileName = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData\RNN_Sampler.py"
@@ -174,7 +181,7 @@ Public Class Form1
         'End If
 
 
-        OpenCMD.CurrentDirectory = "../bin/Debug"
+        'OpenCMD.CurrentDirectory = "../bin/Debug"
         'If (songTuples.IndexOf(newTuple).Equals(-1)) Then
         'songTuples.Add(newTuple)
         'listSamples.Items.Add(newTuple.Item2)
