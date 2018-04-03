@@ -98,7 +98,7 @@ Partial Class Form1
         Me.btnGenerate.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGenerate.ForeColor = System.Drawing.Color.White
-        Me.btnGenerate.Location = New System.Drawing.Point(51, 236)
+        Me.btnGenerate.Location = New System.Drawing.Point(51, 237)
         Me.btnGenerate.Name = "btnGenerate"
         Me.btnGenerate.Size = New System.Drawing.Size(266, 126)
         Me.btnGenerate.TabIndex = 15
@@ -328,7 +328,7 @@ Partial Class Form1
         Me.GenLabel.BackColor = System.Drawing.Color.Transparent
         Me.GenLabel.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GenLabel.ForeColor = System.Drawing.Color.White
-        Me.GenLabel.Location = New System.Drawing.Point(128, 269)
+        Me.GenLabel.Location = New System.Drawing.Point(131, 236)
         Me.GenLabel.Name = "GenLabel"
         Me.GenLabel.Size = New System.Drawing.Size(113, 24)
         Me.GenLabel.TabIndex = 43
@@ -360,11 +360,11 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Letter Gothic Std", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Silver
         Me.Label1.Location = New System.Drawing.Point(12, 35)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(218, 47)
+        Me.Label1.Size = New System.Drawing.Size(198, 42)
         Me.Label1.TabIndex = 46
         Me.Label1.Text = "Melo♪yBot"
         '
