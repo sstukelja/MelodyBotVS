@@ -1,5 +1,4 @@
 ﻿Imports System.Runtime.InteropServices
-Imports System
 Imports System.IO
 
 
@@ -17,10 +16,7 @@ Public Class Form1
         volumeSlider.Value = AxWindowsMediaPlayer1.settings.volume
         volumeVal.Text = volumeSlider.Value.ToString
 
-        MsgBox("Please select your RNN folder")
-        If (FolderBrowserDialog1.ShowDialog = DialogResult.OK) Then
-            sampleFolder = FolderBrowserDialog1.SelectedPath
-        End If
+        sampleFolder = My.Computer.FileSystem.SpecialDirectories.Desktop + "\publish\RNN_MelodyBot_NoData"
     End Sub
 
     'click and drag the window
