@@ -32,6 +32,7 @@ Partial Class Form1
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutUsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WebsiteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -58,7 +59,7 @@ Partial Class Form1
         Me.User_Prompt = New System.Windows.Forms.Label()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.SaveFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.volumeSlider, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,6 +70,7 @@ Partial Class Form1
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GeneratingEQ, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'listSamples
@@ -138,6 +140,12 @@ Partial Class Form1
         Me.RemoveFileToolStripMenuItem.Name = "RemoveFileToolStripMenuItem"
         Me.RemoveFileToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.RemoveFileToolStripMenuItem.Text = "Remove File..."
+        '
+        'SaveFileToolStripMenuItem
+        '
+        Me.SaveFileToolStripMenuItem.Name = "SaveFileToolStripMenuItem"
+        Me.SaveFileToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.SaveFileToolStripMenuItem.Text = "Save File..."
         '
         'ExitToolStripMenuItem
         '
@@ -279,7 +287,7 @@ Partial Class Form1
         Me.btnPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnPause.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPause.ForeColor = System.Drawing.Color.White
-        Me.btnPause.Location = New System.Drawing.Point(396, 315)
+        Me.btnPause.Location = New System.Drawing.Point(395, 315)
         Me.btnPause.Name = "btnPause"
         Me.btnPause.Size = New System.Drawing.Size(97, 47)
         Me.btnPause.TabIndex = 14
@@ -381,11 +389,13 @@ Partial Class Form1
         Me.User_Prompt.TabIndex = 47
         Me.User_Prompt.Text = "Press 'Settings' to begin." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'SaveFileToolStripMenuItem
+        'PictureBox5
         '
-        Me.SaveFileToolStripMenuItem.Name = "SaveFileToolStripMenuItem"
-        Me.SaveFileToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SaveFileToolStripMenuItem.Text = "Save File..."
+        Me.PictureBox5.Location = New System.Drawing.Point(-7, 394)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(738, 95)
+        Me.PictureBox5.TabIndex = 48
+        Me.PictureBox5.TabStop = False
         '
         'Form1
         '
@@ -393,6 +403,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(731, 497)
+        Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.User_Prompt)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Settings)
@@ -429,6 +440,7 @@ Partial Class Form1
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GeneratingEQ, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -469,4 +481,5 @@ Partial Class Form1
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents SaveFileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PictureBox5 As PictureBox
 End Class

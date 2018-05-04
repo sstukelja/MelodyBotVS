@@ -52,6 +52,7 @@ Public Class Form1
 
     'Button for file play
     Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
+        PictureBox5.Hide()
         If (AxWindowsMediaPlayer1.URL.Equals(songTuples(listSamples.SelectedIndex).Item1)) Then
             AxWindowsMediaPlayer1.Ctlcontrols.play()
         Else
@@ -66,6 +67,7 @@ Public Class Form1
         AxWindowsMediaPlayer1.Ctlcontrols.pause()
         btnPlay.Show()
         btnPause.Hide()
+        PictureBox5.Show()
     End Sub
 
     '8 second timer
