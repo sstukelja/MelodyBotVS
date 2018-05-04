@@ -147,47 +147,10 @@ Public Class Form1
         length = Preferences.songLengthSlider.Value
 
         Dim command As String = String.Concat(cmd, Genre, output, " ", tempo, " ", seed, " ", length)
-        'MsgBox(command)
 
         OpenCMD = CreateObject("wscript.shell")
-        'OpenCMD.CurrentDirectory = "C:\Users\Lepi\Desktop\CS425\RNN_MelodyBot_NoData"
-        'OpenCMD.CurrentDirectory = "../../RNN_MelodyBot_NoData"
         Directory.SetCurrentDirectory(sampleFolder)
         OpenCMD.run(command, 0)
-
-        'Dim p As New Process
-        'p.StartInfo.FileName = "C:\Users\Joe\Desktop\CS426_MelodyBot-master\RNN_MelodyBot_NoData\RNN_Sampler.py"
-        'p.StartInfo.Arguments = Genre & output
-        'p.Start()
-
-        'Dim filePath As String = "C:\Users\Lepi\Desktop\CS425\RNN_MelodyBot_NoData\active_samples"
-        'Dim fileName As String = String.Concat(Genre, (Preferences.listInstruments.SelectedItem), "Sample.mid")
-        'Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(String.Concat(filePath, fileName), fileName)
-
-
-        'OpenFileDialog1.InitialDirectory = Directory.GetCurrentDirectory + "\active_samples\"
-
-        'If (OpenFileDialog1.ShowDialog = DialogResult.OK) Then
-        '    Dim start As Integer = OpenFileDialog1.FileName.LastIndexOf("\")
-        '    Dim newTuple As Tuple(Of String, String) = New Tuple(Of String, String)(OpenFileDialog1.FileName, OpenFileDialog1.FileName.Substring(start + 1))
-
-        '    songTuples.Add(newTuple)
-        '    listSamples.Items.Add(newTuple.Item2)
-        '    Console.WriteLine(newTuple)
-        'End If
-
-
-        'OpenCMD.CurrentDirectory = "../bin/Debug"
-        'If (songTuples.IndexOf(newTuple).Equals(-1)) Then
-        'songTuples.Add(newTuple)
-        'listSamples.Items.Add(newTuple.Item2)
-        'Else
-        'AxWindowsMediaPlayer1.Ctlcontrols.pause()
-        'btnPlay.Show()
-        'btnPause.Hide()
-
-        'listSamples.SelectedIndex = -1
-        'End If
 
     End Sub
 
@@ -300,4 +263,17 @@ Public Class Form1
 
     End Sub
 
+    Private Sub SaveFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveFileToolStripMenuItem.Click
+        'Dim fileStream As Stream
+        SaveFileDialog1.Filter = "MIDI File|*.mid"
+        SaveFileDialog1.Title = "Save a MIDI File"
+        SaveFileDialog1.RestoreDirectory = True
+
+        If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
+            If (songTuples(listSamples.SelectedIndex).Item2 IsNot Nothing) Then
+                My.Computer.FileSystem.CopyFile(My.Computer.FileSystem.SpecialDirectories.Desktop + "\publish\RNN_MelodyBot_NoData\active_samples\" + songTuples(listSamples.SelectedIndex).Item2, SaveFileDialog1.FileName)
+            End If
+        End If
+
+    End Sub
 End Class

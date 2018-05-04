@@ -57,6 +57,8 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.User_Prompt = New System.Windows.Forms.Label()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.SaveFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.volumeSlider, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,7 +121,7 @@ Partial Class Form1
         'FileToolStripMenuItem
         '
         Me.FileToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportFileToolStripMenuItem, Me.RemoveFileToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportFileToolStripMenuItem, Me.RemoveFileToolStripMenuItem, Me.SaveFileToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
@@ -379,6 +381,12 @@ Partial Class Form1
         Me.User_Prompt.TabIndex = 47
         Me.User_Prompt.Text = "Press 'Settings' to begin." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
+        'SaveFileToolStripMenuItem
+        '
+        Me.SaveFileToolStripMenuItem.Name = "SaveFileToolStripMenuItem"
+        Me.SaveFileToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SaveFileToolStripMenuItem.Text = "Save File..."
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -459,4 +467,6 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents User_Prompt As Label
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents SaveFileToolStripMenuItem As ToolStripMenuItem
 End Class
